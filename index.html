@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shri Siddhi Vinayak Textiles | SSV Textiles</title>
     <meta name="description" content="Shri Siddhi Vinayak Textiles — curated suiting & shirting in small lots, fast dispatch, trusted since 1992." />
-    <meta name="theme-color" content="#fef6ee" />
+    <meta name="theme-color" content="#111827" />
 
     <!-- Fonts: Poppins (EN), Hind/Noto Sans Devanagari (HI) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Hind:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root{
-            --space-1: 6px; --space-2: 10px; --space-3: 14px; --space-4: 18px; --space-5: 24px; --space-6: 32px;
-            --bg: #fefcf9; --bg-accent: #fef6ee; --surface: #ffffff; --border: rgba(19, 28, 45, .08);
-            --text: #1a2230; --muted: #586072;
-            --shadow: 0 10px 30px rgba(20,24,40,.06); --shadow-strong: 0 16px 40px rgba(20,24,40,.10);
-            --site-logo: clamp(28px, 6.5vw, 40px); --title-logo: clamp(72px, 18vw, 110px);
-            --sec-peach: #fff5ec; --sec-mint:#eefaf3; --sec-lilac:#f5f3ff; --sec-blue:#eef6ff;
+            /* spacing */
+            --s1: 6px; --s2: 10px; --s3: 14px; --s4: 18px; --s5: 24px; --s6: 32px;
+
+            /* theme */
+            --text: #0f172a;         /* slate-900 */
+            --muted:#5b6475;         /* slate-500/600 */
+            --border: rgba(15, 23, 42, .10);
+
+            --bg-white:#ffffff;      /* section A */
+            --bg-gray:#eef2f7;       /* section B (slightly darker, bluish) */
+            --header:#1f2937;        /* dark gray header/footer */
+            --headerText:#e5e7eb;
+
+            --shadow: 0 10px 30px rgba(2,6,23,.06);
+            --shadow-strong: 0 16px 40px rgba(2,6,23,.10);
+
+            --site-logo: clamp(28px, 6.5vw, 40px);
+            --title-logo: clamp(72px, 18vw, 110px);
         }
         *{box-sizing:border-box}
-        html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+        html,body{margin:0;background:var(--bg-white);color:var(--text);font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
         :root:lang(hi), body:lang(hi){font-family:"Hind","Noto Sans Devanagari",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
         a{color:inherit;text-decoration:none}
         img{display:block;max-width:100%;height:auto}
@@ -28,29 +40,26 @@
         h2{margin:0 0 8px}
         .lead{color:var(--muted);margin:0 0 14px}
 
-        /* Header */
-        header{position:sticky;top:0;z-index:40;backdrop-filter:saturate(140%) blur(10px);
-            background:linear-gradient(180deg, rgba(254,246,238,.9), rgba(255,255,255,.88)); box-shadow:0 1px 0 var(--border)}
+        /* header (dark) */
+        header{position:sticky;top:0;z-index:40;background:rgba(31,41,55,.96);color:var(--headerText);backdrop-filter:saturate(140%) blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.05)}
         .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 4vw}
         .brand{display:flex;align-items:center;gap:10px}
         .site-logo{height:var(--site-logo);opacity:0;transform:translateY(-4px) scale(.95);transition:.25s;pointer-events:none}
-        .site-logo img{height:100%;width:auto;object-fit:contain}
+        .site-logo img{height:100%;width:auto;object-fit:contain;filter:brightness(1.05) contrast(1.05)}
         .is-compact .site-logo{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
         .actions{display:flex;align-items:center;gap:10px}
-        .lang-switch{display:inline-flex;gap:6px;padding:6px;border-radius:999px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow)}
-        .lang-switch button{background:transparent;border:0;color:var(--muted);padding:6px 10px;border-radius:999px;font-weight:700;cursor:pointer}
-        .lang-switch button.active{background:#f0f3ff;color:var(--text);box-shadow:inset 0 0 0 1px rgba(86,100,210,.15)}
-        .quick-links{display:inline-flex;align-items:center;gap:8px}
-        .icon-btn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border);box-shadow:var(--shadow);background:#fff}
-        .icon-btn svg{width:20px;height:20px}
-        .btn-call{background: radial-gradient(120% 120% at 30% 20%, #e0f2ff, #ffffff 55%)} .btn-call svg{color:#1570ef}
-        .btn-wa{background: radial-gradient(120% 120% at 30% 20%, #e8fff3, #ffffff 55%)} .btn-wa svg{color:#20c063}
+        .lang-switch{display:inline-flex;gap:6px;padding:6px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+        .lang-switch button{background:transparent;border:0;color:#e5e7eb;padding:6px 10px;border-radius:999px;font-weight:700;cursor:pointer}
+        .lang-switch button.active{background:#111827;color:#fff}
 
-        /* Titlebar */
-        .titlebar{background:
-                radial-gradient(60% 60% at 5% 0%, rgba(255,217,194,.45), transparent 55%),
-                radial-gradient(60% 60% at 95% 10%, rgba(198,241,223,.45), transparent 55%),
-                linear-gradient(180deg, var(--bg-accent) 0%, #fff 100%); border-bottom:1px solid var(--border); padding:14px 0}
+        .quick-links{display:inline-flex;align-items:center;gap:8px}
+        .icon-btn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08); color:#e5e7eb}
+        .icon-btn svg{width:20px;height:20px;color:currentColor}
+        .icon-btn.phone{ color:#60a5fa; background:rgba(96,165,250,.12); border-color:rgba(96,165,250,.35)}
+        .icon-btn.wa{ color:#25D366; background:rgba(37,211,102,.12); border-color:rgba(37,211,102,.35)}
+
+        /* titlebar (subtle, light) */
+        .titlebar{background:linear-gradient(180deg,#f3f4f6 0%,#ffffff 100%);border-bottom:1px solid var(--border);padding:14px 0}
         .titlewrap{display:flex;align-items:center;justify-content:center;gap:12px}
         .title-logo{height:var(--title-logo);transition:.28s}
         .title-logo img{height:100%;width:auto;object-fit:contain}
@@ -59,68 +68,105 @@
         .title-text .sub{margin-top:6px;font-size:clamp(12px,3.6vw,14px);color:var(--muted);font-weight:600}
         .is-compact .title-logo{transform:scale(.7);opacity:0}
 
-        /* Sections */
+        /* sections alternate */
         .section{padding:24px 0}
-        .section.peach{background:var(--sec-peach)}
-        .section.mint{background:var(--sec-mint)}
-        .section.lilac{background:var(--sec-lilac)}
-        .section.blue{background:var(--sec-blue)}
+        .sec-white{background:var(--bg-white)}
+        .sec-gray{background:var(--bg-gray)}
 
-        /* Carousel (now inside container width) */
-        .carousel{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow-strong);background:#fff}
+        /* carousel */
+        .carousel{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--border);box-shadow:var(--shadow-strong);background:#fff}
         .slides{display:flex;transition:transform .5s ease;touch-action:pan-y}
         .slide{min-width:100%;height:54vw;max-height:420px}
         .slide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02)}
         .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
         .dot{width:8px;height:8px;border-radius:50%;background:rgba(26,34,48,.28);border:1px solid rgba(255,255,255,.8)}
         .dot.active{background:#1a2230}
-        .car-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(255,255,255,.95);border:1px solid var(--border);box-shadow:var(--shadow)}
+        .car-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(255,255,255,.96);border:1px solid var(--border);box-shadow:var(--shadow)}
         .car-btn.left{left:8px}.car-btn.right{right:8px}
 
-        /* Cards */
-        .card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+        /* pull-quote */
+        .quote{margin:14px auto 0;border-left:0;background:#ffffff;border:1px solid var(--border);box-shadow:var(--shadow);border-radius:14px;padding:18px 16px;text-align:center}
+        .quote p{margin:0;font-size:15px;line-height:1.7}
+        .quote em{font-style:normal}
 
-        /* About */
-        .about-text{font-size:15px;line-height:1.6}
-
-        /* Stats */
+        /* stats (cards only) */
         .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-        .stat{background:#fff;border:1px solid var(--border);border-radius:18px;padding:14px;text-align:center;box-shadow:var(--shadow)}
-        .stat .num{font-size:22px;font-weight:800;letter-spacing:.3px}
-        .stat .lab{font-size:12px;color:var(--muted);margin-top:4px}
-        @media(min-width:680px){.stats{grid-template-columns:repeat(5,1fr)} .stat .num{font-size:24px}}
+        .stat{
+            /* DARK GREY CARD + PERFECT CENTERING */
+            background:#111827; color:#ffffff;
+            border:1px solid rgba(255,255,255,.10); border-radius:18px; box-shadow:var(--shadow);
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            text-align:center; padding:16px; min-height:120px;
+        }
+        .stat .num{font-size:24px;font-weight:900;letter-spacing:.3px; line-height:1}
+        .stat .lab{font-size:12px;color:#cbd5e1;margin-top:6px}
+        @media(min-width:680px){
+            .stats{grid-template-columns:repeat(4,1fr)}
+            .stat{min-height:130px}
+            .stat .num{font-size:26px}
+        }
 
-        /* Brands – logo-only cards */
+        /* brands (logo-only) */
+        .brands-title{ text-align:center; margin-bottom:10px }
         .brands{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-        @media(min-width:760px){.brands{grid-template-columns:repeat(5,1fr)}}
-        .brand-card{display:grid;place-items:center;height:110px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:12px}
-        .brand-card img{max-height:60px;width:auto;object-fit:contain}
+        @media(min-width:760px){.brands{grid-template-columns:repeat(4,1fr)}}
+        .brand-card{
+            display:grid;place-items:center;
+            height:120px;background:#fff;border:1px solid var(--border);
+            border-radius:18px;box-shadow:var(--shadow);
+            padding:0; overflow:hidden;
+        }
+        .brand-card img{
+            max-width:100%; max-height:100%;
+            width:auto; height:auto;
+            object-fit:contain; object-position:center;
+            transform:translateZ(0);
+        }
 
-        /* Testimonials: 2 columns on mobile too */
+        /* testimonials */
+        #testimonials h2{ text-align:center }
         .testis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-        .testi{background:linear-gradient(180deg, #fff, #f9fbff);border:1px solid var(--border);border-radius:18px;padding:12px;display:grid;gap:6px;box-shadow:var(--shadow)}
+        .testi{background:linear-gradient(180deg,#fff,#f9fbff);border:1px solid var(--border);border-radius:18px;padding:12px;display:grid;gap:6px;box-shadow:var(--shadow)}
         .testi p{margin:0;font-size:13px;line-height:1.45}
         .testi .who{font-weight:700;font-size:12px;color:var(--muted)}
         .stars{font-size:14px;color:#f59e0b}
 
-        /* Footer */
-        footer{margin-top:24px;background:#fff;border-top:1px solid var(--border)}
+        /* footer (dark) */
+        footer{margin-top:24px;background:var(--header);color:var(--headerText);border-top:1px solid rgba(255,255,255,.08)}
         .footer-grid{display:grid;grid-template-columns:1fr;gap:16px;padding:18px 0}
         @media(min-width:620px){.footer-grid{grid-template-columns:1fr 1fr}}
         .row{display:flex;align-items:center;gap:10px;margin:8px 0}
-        .chip{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f5f7fb;border:1px solid var(--border)}
-        .chip svg{width:18px;height:18px;color:#1a2230}
-        .map{overflow:hidden;border-radius:18px;border:1px solid var(--border);background:#fff;box-shadow:var(--shadow)}
-        .copy{border-top:1px solid var(--border);color:var(--muted);font-size:12px;padding:12px 0;text-align:center;background:#fff}
+        .chip{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+        .chip svg{width:18px;height:18px}
+        .lead-contrast{ color:#ffffff; font-weight:700 }
 
-        /* WhatsApp FAB */
+        .icon-phone{ color:#60a5fa }   /* blue */
+        .icon-wa{ color:#25D366 }      /* WhatsApp green */
+        .icon-pin{ color:#ef4444 }     /* red */
+
+        /* MAP fill */
+        .map{position:relative;overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:#0b1220; height:260px}
+        .map iframe{position:absolute; inset:0; width:100%; height:100%; border:0; display:block}
+        @media(min-width:760px){ .map{height:320px} }
+
+        .copy{border-top:1px solid rgba(255,255,255,.12);color:#cbd5e1;font-size:12px;padding:12px 0;text-align:center}
+
+        /* FABs */
         .fab-whatsapp{position:fixed;right:14px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,#3bd179,#20c063);color:#fff;font-weight:800;box-shadow:0 18px 40px rgba(32,192,99,.35),0 1px 0 rgba(255,255,255,.4) inset;border:1px solid rgba(0,0,0,.06)}
         .fab-whatsapp span{font-size:14px}
         .fab-whatsapp svg{width:20px;height:20px;color:#fff}
+        .fab-call{position:fixed;right:14px;bottom:78px; z-index:60;
+            display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;
+            background:linear-gradient(135deg,#60a5fa,#3b82f6); color:#fff;font-weight:800;
+            box-shadow:0 18px 40px rgba(59,130,246,.35),0 1px 0 rgba(255,255,255,.4) inset;
+            border:1px solid rgba(0,0,0,.06)}
+        .fab-call span{font-size:14px}
+        .fab-call svg{width:20px;height:20px;color:#fff}
 
         @media (min-width:760px){
             .slide{height:420px}
             .fab-whatsapp{bottom:22px;right:22px}
+            .fab-call{bottom:88px;right:22px}
         }
     </style>
 </head>
@@ -135,11 +181,11 @@
 
         <div class="actions">
             <div class="quick-links" aria-label="Quick contact">
-                <a class="icon-btn btn-call" href="tel:+919414371251" aria-label="Call">
-                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+                <a class="icon-btn phone" href="tel:+919414371251" aria-label="Call">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
                 </a>
-                <a class="icon-btn btn-wa" href="https://wa.me/919414371251?text=Namaste%20Shri%20Siddhi%20Vinayak%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp">
-                    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                <a class="icon-btn wa" href="https://wa.me/919414371251?text=Namaste%20Shri%20Siddhi%20Vinayak%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <svg viewBox="0 0 32 32" fill="currentColor">
                         <path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
                         <path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/>
                     </svg>
@@ -168,8 +214,8 @@
 </section>
 
 <main id="top">
-    <!-- Hero / Carousel (inside container now) -->
-    <section class="section peach" aria-label="Hero">
+    <!-- Carousel (white) -->
+    <section class="section sec-white" aria-label="Hero">
         <div class="container">
             <div class="carousel" id="carousel" aria-roledescription="carousel">
                 <div class="slides" id="slides">
@@ -183,132 +229,117 @@
                 <button class="car-btn right" id="next" aria-label="Next slide">❯</button>
                 <div class="dots" id="dots" aria-hidden="true"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- About -->
-    <section class="section mint" id="about">
-        <div class="container">
-            <h2 data-i18n="about_title">हमारे बारे में</h2>
-            <div class="card">
-                <p class="about-text" data-i18n="about_para_hi">
-                    सिद्धि विनायक टेक्सटाइल्स - जहाँ कपड़ा सिर्फ व्यापार नहीं, विश्वास है। हम लाते हैं आपके लिए हर महीने नए डिज़ाइन, छोटे पैक्स में, सीधे आपकी दुकान तक। ताकि आपका कारोबार बढ़े, और ग्राहक हमेशा खुश रहें।
+            <!-- Centered Pull-Quote -->
+            <div class="quote" id="quote">
+                <p data-i18n="quote_en" style="display:none">
+                    <em>At Siddhi Vinayak Textiles, we don’t just sell fabric - we care for our retailers. With customized boxes of suiting and shirting in small cuts, delivered straight to your shop, we save you the travel, the risk of dead stock, and the struggle of outdated designs. Because your success is stitched with our trust.</em>
                 </p>
-                <p class="about-text" data-i18n="about_para_en" style="display:none">
-                    At Siddhi Vinayak Textiles, we don’t just sell fabric - we care for our retailers. With customized boxes of suiting and shirting in small cuts, delivered straight to your shop, we save you the travel, the risk of dead stock, and the struggle of outdated designs. Because your success is stitched with our trust.
+                <p data-i18n="quote_hi">
+                    <em>“सिद्धि विनायक टेक्सटाइल्स — जहाँ कपड़ा सिर्फ व्यापार नहीं, विश्वास है। हम लाते हैं आपके लिए हर महीने नए डिज़ाइन, छोटे पैक्स में, सीधे आपकी दुकान तक। ताकि आपका कारोबार बढ़े, और ग्राहक हमेशा खुश रहें।”</em>
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Achievements / Stats -->
-    <section class="section lilac" id="stats">
+    <!-- Achievements / Stats (dark cards + animated) -->
+    <section class="section sec-gray" id="stats">
         <div class="container">
-            <h2 data-i18n="stats_title">हमारी उपलब्धियाँ</h2>
-            <p class="lead" data-i18n="stats_sub">वृद्धि जो भरोसा बनाती है।</p>
             <div class="stats" role="group" aria-label="Key metrics">
                 <div class="stat">
-                    <div class="num" data-i18n="s1_num">30+ साल</div>
+                    <div class="num">
+                        <span class="count" data-target="30" data-suffix="+">0</span>
+                    </div>
                     <div class="lab" data-i18n="s1_lab">1992 से भरोसेमंद सेवा</div>
                 </div>
                 <div class="stat">
-                    <div class="num" data-i18n="s2_num">500+ दुकानदार</div>
+                    <div class="num">
+                        <span class="count" data-target="500" data-suffix="+">0</span>
+                    </div>
                     <div class="lab" data-i18n="s2_lab">हमारे साथ जुड़े</div>
                 </div>
                 <div class="stat">
-                    <div class="num" data-i18n="s3_num">10,000+ ऑर्डर</div>
+                    <div class="num">
+                        <span class="count" data-target="10000" data-suffix="+">0</span>
+                    </div>
                     <div class="lab" data-i18n="s3_lab">सफलतापूर्वक डिलीवर</div>
                 </div>
                 <div class="stat">
-                    <div class="num" data-i18n="s4_num">1000+ डिज़ाइन</div>
+                    <div class="num">
+                        <span class="count" data-target="1000" data-suffix="+">0</span>
+                    </div>
                     <div class="lab" data-i18n="s4_lab">सूटिंग-शर्टिंग में पेश किए</div>
                 </div>
-                <div class="stat">
-                    <div class="num" data-i18n="s5_num">95% संतुष्टि</div>
-                    <div class="lab" data-i18n="s5_lab">ज्यादातर ग्राहक दोबारा ऑर्डर करते हैं</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Brand Associations (logo-only) -->
-    <section class="section blue" id="brands">
+    <!-- Brand Associations (white) -->
+    <section class="section sec-white" id="brands">
         <div class="container">
-            <h2 data-i18n="brands_title">हमारे ब्रांड एसोसिएशंस</h2>
-            <p class="lead" data-i18n="brands_sub">विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।</p>
+            <h2 class="brands-title" data-i18n="brands_title">हमारे ब्रांड एसोसिएशंस</h2>
             <div class="brands" role="list">
-                <div class="brand-card" role="listitem">
-                    <img src="images/logos/raymond-logo.png" alt="Raymond">
-                </div>
-                <div class="brand-card" role="listitem">
-                    <img src="images/logos/siyarams-logo.png" alt="Siyarams">
-                </div>
-                <div class="brand-card" role="listitem">
-                    <img src="images/logos/donear-logo.png" alt="Donear">
-                </div>
-                <div class="brand-card" role="listitem">
-                    <img src="images/logos/ramesh-logo.png" alt="Ramesh">
-                </div>
-                <div class="brand-card" role="listitem">
-                    <img src="images/logos/ocm-logo.png" alt="OCM">
-                </div>
+                <div class="brand-card" role="listitem"><img src="images/logos/raymond-logo.jpeg" alt="Raymond"></div>
+                <div class="brand-card" role="listitem"><img src="images/logos/siyaraam-logo.jpeg" alt="Siyarams"></div>
+                <div class="brand-card" role="listitem"><img src="images/logos/donear-logo.jpg" alt="Donear"></div>
+                <div class="brand-card" role="listitem"><img src="images/logos/ramesh-logo.jpeg" alt="Ramesh"></div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section mint" id="testimonials">
+    <!-- Testimonials (gray) -->
+    <section class="section sec-gray" id="testimonials">
         <div class="container">
             <h2 data-i18n="testi_title">ग्राहक क्या कहते हैं</h2>
             <div class="testis">
                 <div class="testi">
                     <div class="stars">★★★★★</div>
                     <p data-i18n="t1_txt_hi">“पहले मैं लखनऊ जाकर माल लाता था, पूरा दिन खराब हो जाता था। अब WhatsApp पर ऑर्डर देता हूँ, अगले दिन बॉक्स आ जाता है।”</p>
-                    <p data-i18n="t1_txt_en" style="display:none">“Pehle main Lucknow jaake maal lata tha, pura din kharab ho jata tha. Ab WhatsApp pe order deta hoon, agle din box aa jata hai.”</p>
-                    <div class="who">— <span data-i18n="t1_name_hi">इमरान</span> / <span data-i18n="t1_city_hi">वाराणसी</span><span data-i18n="t1_name_en" style="display:none">Imran</span><span data-i18n="t1_city_en" style="display:none">, Varanasi</span></div>
+                    <p data-i18n="t1_txt_en" style="display:none">“Earlier I used to travel to Lucknow and waste a whole day. Now I order on WhatsApp and the box arrives next day.”</p>
+                    <div class="who">— <span data-i18n="t1_name">इमरान</span> / <span data-i18n="t1_city">वाराणसी</span></div>
                 </div>
 
                 <div class="testi">
                     <div class="stars">★★★★★</div>
                     <p data-i18n="t2_txt_hi">“डिज़ाइन नए मिलते हैं, और कट छोटे होने से डेड स्टॉक का रिस्क ही नहीं रहता। दुकान संभालना आसान हो गया है।”</p>
-                    <p data-i18n="t2_txt_en" style="display:none">“Designs naye milte hain, aur cut chhote hone se dead stock ka risk hi nahi rehta. Dukaan sambhalna easy ho gaya hai.”</p>
-                    <div class="who">— <span data-i18n="t2_name_hi">अमित</span> / <span data-i18n="t2_city_hi">नागपुर</span><span data-i18n="t2_name_en" style="display:none">Amit</span><span data-i18n="t2_city_en" style="display:none">, Nagpur</span></div>
+                    <p data-i18n="t2_txt_en" style="display:none">“Designs are fresh and small cuts mean no dead stock risk. Managing the shop is easier now.”</p>
+                    <div class="who">— <span data-i18n="t2_name">अमित</span> / <span data-i18n="t2_city">नागपुर</span></div>
                 </div>
 
                 <div class="testi">
                     <div class="stars">★★★★★</div>
                     <p data-i18n="t3_txt_hi">“मुझे 2.5 मीटर कट चाहिए था, जो मार्केट से मुश्किल से मिलता था। यहाँ बॉक्स में तुरंत मिल गया। समय भी बचा।”</p>
-                    <p data-i18n="t3_txt_en" style="display:none">“Mujhe 2.5 meter cut chahiye tha, jo market se mushkil se milta tha. Yahan box mein turant mil gaya. Time bhi bacha.”</p>
-                    <div class="who">— <span data-i18n="t3_name_hi">सुरेश</span> / <span data-i18n="t3_city_hi">कोटा</span><span data-i18n="t3_name_en" style="display:none">Suresh</span><span data-i18n="t3_city_en" style="display:none">, Kota</span></div>
+                    <p data-i18n="t3_txt_en" style="display:none">“I needed a 2.5m cut which is hard to find. Got it instantly in the box here. Saved time too.”</p>
+                    <div class="who">— <span data-i18n="t3_name">सुरेश</span> / <span data-i18n="t3_city">कोटा</span></div>
                 </div>
 
                 <div class="testi">
                     <div class="stars">★★★★★</div>
                     <p data-i18n="t4_txt_hi">“कपड़ा खराब होने का डर था पहले। पर ये बॉक्स में आया माल का रंग भी स्ट्रॉन्ग है और सिलाई में भी आसान है।”</p>
-                    <p data-i18n="t4_txt_en" style="display:none">“Kapda kharab hone ka darr tha pehle. Par yeh box mein aaya maal ka rang bhi strong hai aur silai mein bhi aasan hai.”</p>
-                    <div class="who">— <span data-i18n="t4_name_hi">राजेश</span> / <span data-i18n="t4_city_hi">भोपाल</span><span data-i18n="t4_name_en" style="display:none">Rajesh</span><span data-i18n="t4_city_en" style="display:none">, Bhopal</span></div>
+                    <p data-i18n="t4_txt_en" style="display:none">“Earlier I worried about fabric quality. These box items have strong color and are easy to stitch.”</p>
+                    <div class="who">— <span data-i18n="t4_name">राजेश</span> / <span data-i18n="t4_city">भोपाल</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Footer -->
+    <!-- Contact / Footer (dark) -->
     <footer id="contact">
         <div class="footer-grid container">
             <div>
                 <h2 style="margin:0 0 8px" data-i18n="contact_title">संपर्क करें</h2>
-                <p class="lead" data-i18n="contact_sub">ऑर्डर, सैंपल या पार्टनरशिप के लिए:</p>
+                <p class="lead-contrast" data-i18n="contact_sub">ऑर्डर, सैंपल या पार्टनरशिप के लिए:</p>
 
                 <div class="row">
           <span class="chip" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+            <svg class="icon-phone" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
           </span>
                     <a href="tel:+919414371251">+91 94143 71251</a>
                 </div>
 
                 <div class="row">
           <span class="chip" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="currentColor">
+            <svg class="icon-wa" viewBox="0 0 32 32" fill="currentColor">
               <path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
               <path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/>
             </svg>
@@ -318,23 +349,37 @@
 
                 <div class="row">
           <span class="chip" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <!-- Google (Gmail) colored logo -->
+            <svg viewBox="0 0 48 48">
+              <path fill="#EA4335" d="M24 24.6L6 12v24c0 1.1.9 2 2 2h8V25.3l8 5.4 8-5.4V38h8c1.1 0 2-.9 2-2V12L24 24.6z"/>
+              <path fill="#34A853" d="M6 12l18 12 18-12v-2c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v2z"/>
+              <path fill="#FBBC05" d="M6 12v-2c0-1.1.9-2 2-2h8v8L6 12z"/>
+              <path fill="#4285F4" d="M32 8h8c1.1 0 2 .9 2 2v2l-10 6V8z"/>
+            </svg>
           </span>
                     <a href="mailto:ssvtextiles.india@gmail.com">ssvtextiles.india@gmail.com</a>
                 </div>
 
-                <p data-i18n="addr_hi">
-                    पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003
-                </p>
-                <p data-i18n="addr_en" style="display:none">
-                    Address: Shop. No. 6&7, 1st floor, Katla Purohit ji ka Hanuman Mandir ke Piche, New cloth Market Gujar Wada, Wali Gali, Tripolia Bazar, Biseswarji, Jaipur, Rajasthan 302003
-                </p>
+                <div class="row">
+          <span class="chip" aria-hidden="true">
+            <!-- Map pin -->
+            <svg class="icon-pin" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+            </svg>
+          </span>
+                    <span data-i18n="addr_hi">
+            पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003
+          </span>
+                    <span data-i18n="addr_en" style="display:none">
+            Address: Shop. No. 6&7, 1st floor, Katla Purohit ji ka Hanuman Mandir ke Piche, New cloth Market Gujar Wada, Wali Gali, Tripolia Bazar, Biseswarji, Jaipur, Rajasthan 302003
+          </span>
+                </div>
             </div>
 
             <div class="map">
                 <iframe title="Shri Siddhi Vinayak Textiles Location"
                         src="https://maps.google.com/maps?q=26.9221793994191,75.82599224223033&z=16&output=embed"
-                        width="100%" height="240" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
         <div class="copy">
@@ -343,7 +388,15 @@
     </footer>
 </main>
 
-<!-- Floating WhatsApp CTA -->
+<!-- Call FAB (blue) -->
+<a class="fab-call" href="tel:+919414371251" aria-label="Call SSV Textiles">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/>
+    </svg>
+    <span>Call</span>
+</a>
+
+<!-- WhatsApp FAB -->
 <a class="fab-whatsapp" href="https://wa.me/919414371251?text=Namaste%20Shri%20Siddhi%20Vinayak%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
         <path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
@@ -390,55 +443,52 @@
         setTransform(`calc(-${idx*100}% + ${dx}px)`);
     });
 
-    // i18n strings
+    // Language strings
     const STRINGS={
         hi:{
             site_name:'श्री सिद्धि विनायक टेक्सटाइल्स',
             tagline:'सूटिंग-शर्टिंग के नामी थोक सप्लायर',
-            about_title:'हमारे बारे में',
-            stats_title:'हमारी उपलब्धियाँ',
-            stats_sub:'वृद्धि जो भरोसा बनाती है।',
             brands_title:'हमारे ब्रांड एसोसिएशंस',
-            brands_sub:'विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।',
             testi_title:'ग्राहक क्या कहते हैं',
             contact_title:'संपर्क करें',
             contact_sub:'ऑर्डर, सैंपल या पार्टनरशिप के लिए:',
-            addr_hi:'पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003',
             rights_hi:'सर्वाधिकार सुरक्षित',
-            // About paragraphs
-            about_para_show:'hi',
-            // Stats (Hindi)
-            s1_num:'30+ साल', s1_lab:'1992 से भरोसेमंद सेवा',
-            s2_num:'500+ दुकानदार', s2_lab:'हमारे साथ जुड़े',
-            s3_num:'10,000+ ऑर्डर', s3_lab:'सफलतापूर्वक डिलीवर',
-            s4_num:'1000+ डिज़ाइन', s4_lab:'सूटिंग-शर्टिंग में पेश किए',
-            s5_num:'95% संतुष्टि', s5_lab:'ज्यादातर ग्राहक दोबारा ऑर्डर करते हैं',
-            // Testimonials (Hindi shown)
-            t1:'hi', t2:'hi', t3:'hi', t4:'hi'
+            show_quote:'hi',
+            // Stats labels (no 5th card anymore)
+            s1_lab:'1992 से भरोसेमंद सेवा',
+            s2_lab:'हमारे साथ जुड़े',
+            s3_lab:'सफलतापूर्वक डिलीवर',
+            s4_lab:'सूटिंग-शर्टिंग में पेश किए',
+            // Address
+            addr_hi:'पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003',
+            // Testimonial names/cities
+            t1:'hi', t2:'hi', t3:'hi', t4:'hi',
+            t1_name:'इमरान', t1_city:'वाराणसी',
+            t2_name:'अमित',   t2_city:'नागपुर',
+            t3_name:'सुरेश',  t3_city:'कोटा',
+            t4_name:'राजेश',  t4_city:'भोपाल',
         },
         en:{
             site_name:'Shri Siddhi Vinayak Textiles',
             tagline:'Leading wholesalers in suiting & shirting',
-            about_title:'About Us',
-            stats_title:'Our Achievements',
-            stats_sub:'Growth that builds trust.',
             brands_title:'Brand Associations',
-            brands_sub:'Trusted brands we work with.',
             testi_title:'Testimonials',
             contact_title:'Contact Us',
             contact_sub:'For orders, samples, or partnerships:',
-            addr_hi:'', // hidden in EN
             rights_hi:'All rights reserved',
-            // About paragraphs
-            about_para_show:'en',
-            // Stats (English)
-            s1_num:'30+ Years', s1_lab:'of trust since 1992',
-            s2_num:'500+ Retailers', s2_lab:'served across India',
-            s3_num:'10,000+ Orders', s3_lab:'delivered successfully',
-            s4_num:'1000+ Designs', s4_lab:'launched in suiting & shirting',
-            s5_num:'95% Satisfaction', s5_lab:'retailers reorder with us',
-            // Testimonials (English shown)
-            t1:'en', t2:'en', t3:'en', t4:'en'
+            show_quote:'en',
+            // Stats labels (no 5th card anymore)
+            s1_lab:'of trust since 1992',
+            s2_lab:'served across India',
+            s3_lab:'delivered successfully',
+            s4_lab:'launched in suiting & shirting',
+            addr_hi:'',
+            // Testimonials names/cities in EN
+            t1:'en', t2:'en', t3:'en', t4:'en',
+            t1_name:'Imran', t1_city:'Varanasi',
+            t2_name:'Amit',  t2_city:'Nagpur',
+            t3_name:'Suresh',t3_city:'Kota',
+            t4_name:'Rajesh',t4_city:'Bhopal',
         }
     };
 
@@ -446,48 +496,60 @@
         const dict=STRINGS[lang]||STRINGS.hi;
         document.documentElement.lang=lang;
 
-        // Simple keys
-        const keys=['site_name','tagline','about_title','stats_title','stats_sub','brands_title','brands_sub','testi_title','contact_title','contact_sub'];
-        keys.forEach(k=>{ const el=document.querySelector(`[data-i18n="${k}"]`); if(el && dict[k]) el.textContent=dict[k]; });
-
-        // About paragraphs toggle
-        const hiPara=document.querySelector('[data-i18n="about_para_hi"]');
-        const enPara=document.querySelector('[data-i18n="about_para_en"]');
-        if(hiPara && enPara){
-            if(dict.about_para_show==='en'){ hiPara.style.display='none'; enPara.style.display='block'; }
-            else { hiPara.style.display='block'; enPara.style.display='none'; }
-        }
-
-        // Address & rights/copyright text
-        const addrHi=document.querySelector('[data-i18n="addr_hi"]');
-        const addrEn=document.querySelector('[data-i18n="addr_en"]');
-        if(addrHi && addrEn){ if(lang==='en'){ addrHi.style.display='none'; addrEn.style.display='block'; } else { addrHi.style.display='block'; addrEn.style.display='none'; } }
-
-        document.querySelector('[data-i18n="rights_hi"]').textContent = (lang==='en') ? 'All rights reserved' : 'सर्वाधिकार सुरक्षित';
-
-        // Stats values
-        ['s1','s2','s3','s4','s5'].forEach(s=>{
-            const n=document.querySelector(`[data-i18n="${s}_num"]`); const l=document.querySelector(`[data-i18n="${s}_lab"]`);
-            if(n && l){ n.textContent=dict[`${s}_num`]; l.textContent=dict[`${s}_lab`]; }
+        // Titles
+        ['site_name','tagline','brands_title','testi_title','contact_title','contact_sub'].forEach(k=>{
+            const el=document.querySelector(`[data-i18n="${k}"]`); if(el && dict[k]) el.textContent=dict[k];
         });
 
-        // Testimonials toggles (show HI or EN lines)
+        // Quote toggle
+        const qEn=document.querySelector('[data-i18n="quote_en"]');
+        const qHi=document.querySelector('[data-i18n="quote_hi"]');
+        if(qEn && qHi){ if(dict.show_quote==='en'){ qHi.style.display='none'; qEn.style.display='block'; } else { qHi.style.display='block'; qEn.style.display='none'; } }
+
+        // Address toggle
+        const addrHi=document.querySelector('[data-i18n="addr_hi"]');
+        const addrEn=document.querySelector('[data-i18n="addr_en"]');
+        if(addrHi && addrEn){ if(lang==='en'){ addrHi.style.display='none'; addrEn.style.display='inline'; } else { addrHi.style.display='inline'; addrEn.style.display='none'; } }
+
+        // Rights text
+        const rightsEl=document.querySelector('[data-i18n="rights_hi"]');
+        if(rightsEl) rightsEl.textContent = (lang==='en') ? 'All rights reserved' : 'सर्वाधिकार सुरक्षित';
+
+        // Stats labels
+        ['s1','s2','s3','s4'].forEach(s=>{
+            const l=document.querySelector(`[data-i18n="${s}_lab"]`);
+            if(l){ l.textContent=dict[`${s}_lab`]; }
+        });
+
+        // Testimonials text toggle
         [['t1','t1_txt_hi','t1_txt_en'],['t2','t2_txt_hi','t2_txt_en'],['t3','t3_txt_hi','t3_txt_en'],['t4','t4_txt_hi','t4_txt_en']].forEach(([key,hi,en])=>{
             const eHi=document.querySelector(`[data-i18n="${hi}"]`);
             const eEn=document.querySelector(`[data-i18n="${en}"]`);
             if(eHi && eEn){ if(dict[key]==='en'){ eHi.style.display='none'; eEn.style.display='block'; } else { eHi.style.display='block'; eEn.style.display='none'; } }
         });
 
-        // Names/cities display for EN (already part of text lines), keep Hindi names visible in HI
+        // Testimonials names & cities
+        ['1','2','3','4'].forEach(i=>{
+            const nameEl=document.querySelector(`[data-i18n="t${i}_name"]`);
+            const cityEl=document.querySelector(`[data-i18n="t${i}_city"]`);
+            if(nameEl) nameEl.textContent = dict[`t${i}_name`];
+            if(cityEl) cityEl.textContent = dict[`t${i}_city`];
+        });
+
+        // Lang toggle UI + remember
         document.getElementById('btn-hi').classList.toggle('active',lang==='hi');
         document.getElementById('btn-en').classList.toggle('active',lang==='en');
         localStorage.setItem('ssv-lang',lang);
     }
+
     document.getElementById('btn-hi').addEventListener('click',()=>applyLang('hi'));
     document.getElementById('btn-en').addEventListener('click',()=>applyLang('en'));
-    applyLang(localStorage.getItem('ssv-lang')||'hi');
 
-    // Compact header toggler
+    // Default Hindi on load (if no stored preference)
+    const stored = localStorage.getItem('ssv-lang');
+    applyLang(stored ? stored : 'hi');
+
+    // Compact header toggle
     const titlebar=document.getElementById('titlebar');
     const root=document.body;
     const compactObserver=new IntersectionObserver(([entry])=>{
@@ -495,6 +557,42 @@
         else { root.classList.remove('is-compact'); }
     }, { threshold:[0,0.95,1] });
     compactObserver.observe(titlebar);
+
+    // ====== COUNT-UP ANIMATION FOR STATS ======
+    const statsSection = document.getElementById('stats');
+    const counters = [...document.querySelectorAll('.count')];
+    let counted = false;
+
+    function formatWithCommas(n){
+        return Math.floor(n).toLocaleString('en-US');
+    }
+    function animateCount(el, target, duration=1200){
+        const start = 0;
+        const startTime = performance.now();
+        const suffix = el.getAttribute('data-suffix') || '';
+        const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+        function tick(now){
+            const p = Math.min(1, (now - startTime) / duration);
+            const eased = easeOut(p);
+            const val = start + (target - start) * eased;
+            el.textContent = formatWithCommas(val) + suffix;
+            if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
+
+    const statObserver = new IntersectionObserver(([entry])=>{
+        if(entry.isIntersecting && !counted){
+            counted = true;
+            counters.forEach(el=>{
+                const target = parseInt(el.getAttribute('data-target'),10) || 0;
+                animateCount(el, target);
+            });
+            statObserver.unobserve(statsSection);
+        }
+    }, { threshold: 0.35 });
+    statObserver.observe(statsSection);
 </script>
 </body>
 </html>
