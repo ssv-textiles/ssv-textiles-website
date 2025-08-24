@@ -1,1 +1,376 @@
-abc
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SSV Textiles | श्री सिद्धिविनायक टेक्सटाइल्स</title>
+    <meta name="description" content="Shri Siddhivinayak Textiles (SSV Textiles) – गुणवत्तापूर्ण सूटिंग-शर्टिंग, तेज़ डिलीवरी, और भरोसेमंद सेवा।" />
+    <style>
+        :root {
+            --bg: #0b0b0c;
+            --card: #121216;
+            --muted: #7f8796;
+            --text: #f2f5f7;
+            --accent: #f59e0b; /* amber */
+            --accent-2: #22c55e; /* green */
+            --brand-tint: rgba(0,0,0,0.45);
+            --radius: 16px;
+            --shadow: 0 8px 24px rgba(0,0,0,.25);
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"; }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; width: 100%; height: auto; }
+        .container { width: min(960px, 92vw); margin: 0 auto; }
+
+        /* Header */
+        header { position: sticky; top: 0; z-index: 40; backdrop-filter: saturate(160%) blur(10px); background: rgba(11,11,12,.6); border-bottom: 1px solid rgba(255,255,255,.06); }
+        .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 4vw; gap: 12px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
+        .logo { width: 36px; height: 36px; border-radius: 12px; background: radial-gradient(circle at 30% 30%, #ffedd5, #fb923c 45%, #7c2d12 100%); box-shadow: inset 0 0 10px rgba(0,0,0,.25); display: grid; place-items: center; font-weight: 800; color: #1b1b1b; }
+        .brand small { color: var(--muted); font-weight: 500; display: block; font-size: 11px; }
+        .lang-switch { display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 999px; background: var(--card); border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); }
+        .lang-switch button { background: transparent; border: 0; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-weight: 700; cursor: pointer; }
+        .lang-switch button.active { background: #1f2937; color: var(--text); }
+
+        /* Hero/Carousel */
+        .carousel { position: relative; overflow: hidden; border-radius: var(--radius); margin: 16px 4vw; box-shadow: var(--shadow); }
+        .slides { display: flex; transition: transform .5s ease; touch-action: pan-y; }
+        .slide { min-width: 100%; height: 54vw; max-height: 420px; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 6px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.4); border: 1px solid rgba(0,0,0,.2); }
+        .dot.active { background: #fff; }
+        .car-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.15); width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; color: #fff; cursor: pointer; }
+        .car-btn.left { left: 8px; } .car-btn.right { right: 8px; }
+
+        /* Section titles */
+        .section { padding: 24px 4vw; }
+        h2 { margin: 0 0 12px; font-size: 20px; }
+        p.lead { color: var(--muted); margin: 6px 0 0; }
+
+        /* Section 2: Video + About */
+        .two-col { display: grid; gap: 16px; grid-template-columns: 1fr; }
+        .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
+        .video-wrap { aspect-ratio: 16/9; overflow: hidden; border-radius: 12px; }
+        iframe { width: 100%; height: 100%; border: 0; }
+
+        /* Section 3: Counters */
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .stat { text-align: center; background: linear-gradient(180deg, #111218, #0c0d11); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 16px 10px; }
+        .stat .num { font-size: 28px; font-weight: 800; letter-spacing: .5px; }
+        .stat .lab { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+        /* Section 4: Brands */
+        .brands { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .brand-card { position: relative; border-radius: 14px; overflow: hidden; height: 124px; border: 1px solid rgba(255,255,255,.06); }
+        .brand-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.2) saturate(.9) contrast(1); }
+        .brand-card::after { content: ""; position: absolute; inset: 0; background: var(--brand-tint); }
+        .brand-card span { position: absolute; left: 12px; bottom: 10px; font-weight: 800; letter-spacing: .3px; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+
+        /* Section 5: Testimonials */
+        .testis { display: grid; gap: 12px; }
+        .testi { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 14px; display: grid; gap: 8px; }
+        .testi .who { font-weight: 700; }
+        .stars { font-size: 14px; color: var(--accent); }
+
+        /* Footer */
+        footer { margin-top: 20px; background: #0f1115; border-top: 1px solid rgba(255,255,255,.08); }
+        .footer-grid { display: grid; gap: 16px; grid-template-columns: 1fr; padding: 18px 4vw; }
+        .contact a { color: var(--text); display: inline-block; margin: 4px 0; }
+        .map { overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,.06); }
+        .copy { border-top: 1px solid rgba(255,255,255,.06); color: var(--muted); font-size: 12px; padding: 12px 4vw; text-align: center; }
+
+        /* Larger screens */
+        @media (min-width: 760px) {
+            h2 { font-size: 24px; }
+            .two-col { grid-template-columns: 1fr 1fr; }
+            .brands { grid-template-columns: repeat(3, 1fr); }
+            .slide { height: 420px; }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="nav container" role="navigation" aria-label="Primary">
+        <a href="#top" class="brand" aria-label="SSV Textiles Home">
+            <div class="logo" aria-hidden="true">SSV</div>
+            <div>
+                <div style="font-size:16px">SSV Textiles</div>
+                <small data-i18n="tagline">गुणवत्ता • भरोसा • समय पर डिलीवरी</small>
+            </div>
+        </a>
+        <div class="lang-switch" aria-label="Language selector">
+            <button id="btn-hi" class="active" data-lang="hi" aria-pressed="true">हिं</button>
+            <button id="btn-en" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+    </div>
+</header>
+
+<main id="top">
+    <!-- Section 1: Carousel -->
+    <section class="section" aria-label="Hero">
+        <div class="carousel" id="carousel" aria-roledescription="carousel">
+            <div class="slides" id="slides">
+                <!-- Replace src with your images (1200x600 recommended) -->
+                <div class="slide"><img src="https://images.unsplash.com/photo-1585559605151-8e8dcf7f3d01?q=80&w=1600&auto=format&fit=crop" alt="Premium suiting fabrics" /></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" alt="Modern textile machinery" /></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop" alt="Shirting fabrics display" /></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1600&auto=format&fit=crop" alt="Tailor stitching close-up" /></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" alt="Retailer receiving boxes" /></div>
+            </div>
+            <button class="car-btn left" id="prev" aria-label="Previous slide">❮</button>
+            <button class="car-btn right" id="next" aria-label="Next slide">❯</button>
+            <div class="dots" id="dots" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <!-- Section 2: Video + About -->
+    <section class="section container" id="about">
+        <h2 data-i18n="about_title">हमारे बारे में</h2>
+        <p class="lead" data-i18n="about_sub">SSV Textiles – सूटिंग‑शर्टिंग की चुनिंदा वैरायटी, छोटे लॉट्स में, तेज़ डिलीवरी के साथ।</p>
+        <div class="two-col">
+            <div class="card">
+                <div class="video-wrap">
+                    <!-- Replace the src below with your YouTube share link -->
+                    <iframe id="yt" src="https://www.youtube.com/embed/ysz5S6PUM-U" title="SSV Textiles Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h3 style="margin:0 0 6px" data-i18n="about_head">क्यों चुने SSV Textiles?</h3>
+                <ul style="margin:0; padding-left:18px; line-height:1.6">
+                    <li data-i18n="about_point1">छोटे लॉट्स (2.5m / 4m / 10m) – टियर 2/3 रिटेलर्स के लिए उपयुक्त।</li>
+                    <li data-i18n="about_point2">गुणवत्ता आश्वासन – कलरफास्टनेस, श्रिंक‑कंट्रोल, स्ट्रॉन्ग वीविंग।</li>
+                    <li data-i18n="about_point3">तेज़ डिस्पैच – 24 घंटे में पैकिंग व शिपमेंट।</li>
+                    <li data-i18n="about_point4">हर महीने नए डिज़ाइन्स – ट्रेंड्स के साथ अप‑टू‑डेट।</li>
+                    <li data-i18n="about_point5">ईमानदार कीमत – बेहतरीन मार्जिन के साथ।</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Animated Counters -->
+    <section class="section container" id="stats">
+        <h2 data-i18n="stats_title">हमारी उपलब्धियाँ</h2>
+        <p class="lead" data-i18n="stats_sub">वृद्धि जो भरोसा बनाती है।</p>
+        <div class="stats" role="group" aria-label="Key metrics">
+            <div class="stat">
+                <div class="num" data-count-to="12500">0</div>
+                <div class="lab" data-i18n="stat1">कुल ऑर्डर्स</div>
+            </div>
+            <div class="stat">
+                <div class="num" data-count-to="650">0</div>
+                <div class="lab" data-i18n="stat2">रिटेलर पार्टनर्स</div>
+            </div>
+            <div class="stat">
+                <div class="num" data-count-to="48000">0</div>
+                <div class="lab" data-i18n="stat3">कस्टमर्स सर्व्ड</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Brand Associations -->
+    <section class="section container" id="brands">
+        <h2 data-i18n="brands_title">हमारे ब्रांड एसोसिएशंस</h2>
+        <p class="lead" data-i18n="brands_sub">विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।</p>
+        <div class="brands" role="list">
+            <!-- Replace images with actual brand visuals if available -->
+            <div class="brand-card" role="listitem">
+                <img src="https://images.unsplash.com/photo-1555529771-35a38c7e9f9f?q=80&w=1200&auto=format&fit=crop" alt="Raymond" />
+                <span>Raymond</span>
+            </div>
+            <div class="brand-card" role="listitem">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Siyaram's" />
+                <span>Siyarams</span>
+            </div>
+            <div class="brand-card" role="listitem">
+                <img src="https://images.unsplash.com/photo-1464660439080-b79116909ce7?q=80&w=1200&auto=format&fit=crop" alt="Donear" />
+                <span>Donear</span>
+            </div>
+            <div class="brand-card" role="listitem">
+                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200&auto=format&fit=crop" alt="Arvind" />
+                <span>Arvind</span>
+            </div>
+            <div class="brand-card" role="listitem">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop" alt="Ramesh" />
+                <span>Ramesh</span>
+            </div>
+            <div class="brand-card" role="listitem">
+                <img src="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=1200&auto=format&fit=crop" alt="More" />
+                <span data-i18n="and_more">और भी</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Testimonials -->
+    <section class="section container" id="testimonials">
+        <h2 data-i18n="testi_title">ग्राहक क्या कहते हैं</h2>
+        <div class="testis">
+            <div class="testi">
+                <div class="stars">★★★★★</div>
+                <p data-i18n="t1">“छोटे शहर की दुकान के लिए छोटे‑छोटे लॉट्स में इतनी वैरायटी मिलना बहुत मददगार रहा।”</p>
+                <div class="who">— राजीव कुमार, <span data-i18n="t1_city">झाँसी</span></div>
+            </div>
+            <div class="testi">
+                <div class="stars">★★★★★</div>
+                <p data-i18n="t2">“कपड़े की क्वालिटी और टाइम पर डिलीवरी – दोनों बेहतरीन। हमारे कस्टमर खुश हैं।”</p>
+                <div class="who">— अंजलि गुप्ता, <span data-i18n="t2_city">कोटा</span></div>
+            </div>
+            <div class="testi">
+                <div class="stars">★★★★☆</div>
+                <p data-i18n="t3">“हर महीने नए डिज़ाइन्स आने से स्टॉक फ्रेश रहता है। सेल बढ़ी है।”</p>
+                <div class="who">— इमरान शेख, <span data-i18n="t3_city">गोरखपुर</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Footer / Contact -->
+    <footer id="contact">
+        <div class="footer-grid container">
+            <div class="contact">
+                <h2 style="margin:0 0 8px" data-i18n="contact_title">संपर्क करें</h2>
+                <p class="lead" data-i18n="contact_sub">ऑर्डर, सैंपल या पार्टनरशिप के लिए:</p>
+                <p>📞 <a href="tel:+919999999999">+91 99999 99999</a></p>
+                <p>💬 <a href="https://wa.me/919999999999" target="_blank" rel="noopener">WhatsApp</a></p>
+                <p>✉️ <a href="mailto:hello@ssvtextiles.in">hello@ssvtextiles.in</a></p>
+                <p data-i18n="addr">पता: शोरूम नं. 12, मुख्य बाजार, कानपुर, उत्तर प्रदेश</p>
+            </div>
+            <div class="map">
+                <!-- Replace the src with your Google Maps embed link -->
+                <iframe title="SSV Textiles Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019575927056!2d-122.419415!3d37.774929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjciTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sin!4v1610000000000" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="copy">
+            © <span id="yr"></span> SSV Textiles — <span data-i18n="rights">सर्वाधिकार सुरक्षित</span> | <span data-i18n="footer_note">All rights reserved SSV Textiles</span>
+        </div>
+    </footer>
+</main>
+
+<script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Simple carousel
+    const slides = document.getElementById('slides');
+    const total = slides.children.length;
+    let idx = 0, startX = 0, currentX = 0, isDown = false, auto;
+    const dotsWrap = document.getElementById('dots');
+    for (let i = 0; i < total; i++) {
+        const d = document.createElement('div'); d.className = 'dot' + (i===0?' active':''); dotsWrap.appendChild(d);
+        d.addEventListener('click', () => go(i));
+    }
+    const dots = dotsWrap.children;
+    function go(i){ idx = (i+total)%total; slides.style.transform = `translateX(-${idx*100}%)`; [...dots].forEach((dot,j)=>dot.classList.toggle('active', j===idx)); restart(); }
+    function next(){ go(idx+1); }
+    function prev(){ go(idx-1); }
+    function restart(){ clearInterval(auto); auto = setInterval(next, 4000); }
+    restart();
+    document.getElementById('next').onclick = next; document.getElementById('prev').onclick = prev;
+
+    // Swipe
+    slides.addEventListener('pointerdown', e=>{ isDown=true; startX=e.clientX; slides.style.transition='none'; clearInterval(auto); });
+    window.addEventListener('pointerup', ()=>{ if(!isDown) return; isDown=false; slides.style.transition='transform .5s ease'; const dx=currentX-startX; if (Math.abs(dx)>40){ dx>0?prev():next(); } else { go(idx); } });
+    window.addEventListener('pointermove', e=>{ if(!isDown) return; currentX=e.clientX; const dx=currentX-startX; slides.style.transform=`translateX(calc(-${idx*100}% + ${dx}px))`; });
+
+    // Counters on view
+    const observer = new IntersectionObserver((ents)=>{
+        ents.forEach(ent=>{
+            if(ent.isIntersecting){
+                ent.target.querySelectorAll('[data-count-to]').forEach(el=>{
+                    if(el.dataset.done) return; el.dataset.done = '1';
+                    const end = parseInt(el.dataset.countTo,10); const dur = 1200; const t0 = performance.now();
+                    function tick(t){ const p = Math.min(1, (t-t0)/dur); const val = Math.floor(end * (0.1 + 0.9 * p*p)); el.textContent = val.toLocaleString('en-IN'); if(p<1) requestAnimationFrame(tick); }
+                    requestAnimationFrame(tick);
+                });
+            }
+        });
+    }, { threshold: .4 });
+    observer.observe(document.getElementById('stats'));
+
+    // i18n
+    const STRINGS = {
+        hi: {
+            tagline: 'गुणवत्ता • भरोसा • समय पर डिलीवरी',
+            about_title: 'हमारे बारे में',
+            about_sub: 'SSV Textiles – सूटिंग‑शर्टिंग की चुनिंदा वैरायटी, छोटे लॉट्स में, तेज़ डिलीवरी के साथ।',
+            about_head: 'क्यों चुने SSV Textiles?',
+            about_point1: 'छोटे लॉट्स (2.5m / 4m / 10m) – टियर 2/3 रिटेलर्स के लिए उपयुक्त।',
+            about_point2: 'गुणवत्ता आश्वासन – कलरफास्टनेस, श्रिंक‑कंट्रोल, स्ट्रॉन्ग वीविंग।',
+            about_point3: 'तेज़ डिस्पैच – 24 घंटे में पैकिंग व शिपमेंट।',
+            about_point4: 'हर महीने नए डिज़ाइन्स – ट्रेंड्स के साथ अप‑टू‑डेट।',
+            about_point5: 'ईमानदार कीमत – बेहतरीन मार्जिन के साथ।',
+            stats_title: 'हमारी उपलब्धियाँ',
+            stats_sub: 'वृद्धि जो भरोसा बनाती है।',
+            stat1: 'कुल ऑर्डर्स',
+            stat2: 'रिटेलर पार्टनर्स',
+            stat3: 'कस्टमर्स सर्व्ड',
+            brands_title: 'हमारे ब्रांड एसोसिएशंस',
+            brands_sub: 'विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।',
+            and_more: 'और भी',
+            testi_title: 'ग्राहक क्या कहते हैं',
+            t1: '“छोटे शहर की दुकान के लिए छोटे‑छोटे लॉट्स में इतनी वैरायटी मिलना बहुत मददगार रहा।”',
+            t1_city: 'झाँसी',
+            t2: '“कपड़े की क्वालिटी और टाइम पर डिलीवरी – दोनों बेहतरीन। हमारे कस्टमर खुश हैं।”',
+            t2_city: 'कोटा',
+            t3: '“हर महीने नए डिज़ाइन्स आने से स्टॉक फ्रेश रहता है। सेल बढ़ी है।”',
+            t3_city: 'गोरखपुर',
+            contact_title: 'संपर्क करें',
+            contact_sub: 'ऑर्डर, सैंपल या पार्टनरशिप के लिए:',
+            addr: 'पता: शोरूम नं. 12, मुख्य बाजार, कानपुर, उत्तर प्रदेश',
+            rights: 'सर्वाधिकार सुरक्षित',
+            footer_note: 'All rights reserved SSV Textiles'
+        },
+        en: {
+            tagline: 'Quality • Trust • On‑time Delivery',
+            about_title: 'About Us',
+            about_sub: 'SSV Textiles – curated suiting & shirting, small lots, with swift dispatch.',
+            about_head: 'Why Choose SSV Textiles?',
+            about_point1: 'Small lots (2.5m / 4m / 10m) – perfect for tier‑2/3 retailers.',
+            about_point2: 'Quality assurance – colorfastness, shrink control, strong weaving.',
+            about_point3: 'Fast dispatch – packing & shipment within 24 hours.',
+            about_point4: 'New designs monthly – always on trend.',
+            about_point5: 'Honest pricing – great margins.',
+            stats_title: 'Our Milestones',
+            stats_sub: 'Growth that builds trust.',
+            stat1: 'Total Orders',
+            stat2: 'Retailer Partners',
+            stat3: 'Customers Served',
+            brands_title: 'Brand Associations',
+            brands_sub: 'Trusted brands we work with.',
+            and_more: 'and more',
+            testi_title: 'Testimonials',
+            t1: '“For a small‑city shop, getting so much variety in small lots has been a big help.”',
+            t1_city: 'Jhansi',
+            t2: '“Excellent fabric quality and on‑time delivery. Our customers are happy.”',
+            t2_city: 'Kota',
+            t3: '“Monthly new designs keep our stock fresh. Sales have improved.”',
+            t3_city: 'Gorakhpur',
+            contact_title: 'Contact Us',
+            contact_sub: 'For orders, samples, or partnerships:',
+            addr: 'Address: Showroom No. 12, Main Market, Kanpur, Uttar Pradesh',
+            rights: 'All rights reserved',
+            footer_note: 'All rights reserved SSV Textiles'
+        }
+    };
+
+    function applyLang(lang){
+        const dict = STRINGS[lang] || STRINGS.hi;
+        document.querySelectorAll('[data-i18n]').forEach(el=>{
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) el.textContent = dict[key];
+        });
+        document.documentElement.lang = lang;
+        document.getElementById('btn-hi').classList.toggle('active', lang==='hi');
+        document.getElementById('btn-en').classList.toggle('active', lang==='en');
+        localStorage.setItem('ssv-lang', lang);
+    }
+
+    document.getElementById('btn-hi').addEventListener('click', ()=>applyLang('hi'));
+    document.getElementById('btn-en').addEventListener('click', ()=>applyLang('en'));
+
+    // Load saved language (default: hi)
+    applyLang(localStorage.getItem('ssv-lang') || 'hi');
+</script>
+</body>
+</html>
