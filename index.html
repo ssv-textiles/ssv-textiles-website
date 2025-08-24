@@ -11,8 +11,8 @@
             --card: #121216;
             --muted: #7f8796;
             --text: #f2f5f7;
-            --accent: #f59e0b; /* amber */
-            --accent-2: #22c55e; /* green */
+            --accent: #f59e0b;
+            --accent-2: #22c55e;
             --brand-tint: rgba(0,0,0,0.45);
             --radius: 16px;
             --shadow: 0 8px 24px rgba(0,0,0,.25);
@@ -29,9 +29,19 @@
         .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
         .logo { width: 36px; height: 36px; border-radius: 12px; background: radial-gradient(circle at 30% 30%, #ffedd5, #fb923c 45%, #7c2d12 100%); box-shadow: inset 0 0 10px rgba(0,0,0,.25); display: grid; place-items: center; font-weight: 800; color: #1b1b1b; }
         .brand small { color: var(--muted); font-weight: 500; display: block; font-size: 11px; }
+
         .lang-switch { display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 999px; background: var(--card); border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); }
         .lang-switch button { background: transparent; border: 0; color: var(--muted); padding: 6px 10px; border-radius: 999px; font-weight: 700; cursor: pointer; }
         .lang-switch button.active { background: #1f2937; color: var(--text); }
+
+        /* Header contact icons + number */
+        .contact-header { display: inline-flex; align-items: center; gap: 8px; }
+        .contact-header .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; background: var(--card); border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); }
+        .contact-header .icon-btn.phone { background: #1f2937; color: #fff; }
+        .contact-header .icon-btn.whatsapp { background: #25D366; color: #0b1b0f; }
+        .contact-header .icon-btn:active { transform: translateY(1px); }
+        .contact-header .number { font-weight: 800; color: var(--text); line-height: 1; }
+        @media (max-width: 480px) { .contact-header { gap: 6px; } .contact-header .number { font-size: 12px; } }
 
         /* Hero/Carousel */
         .carousel { position: relative; overflow: hidden; border-radius: var(--radius); margin: 16px 4vw; box-shadow: var(--shadow); }
@@ -81,12 +91,24 @@
         .map { overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,.06); }
         .copy { border-top: 1px solid rgba(255,255,255,.06); color: var(--muted); font-size: 12px; padding: 12px 4vw; text-align: center; }
 
+        /* Floating WhatsApp CTA */
+        .fab-whatsapp {
+            position: fixed; right: 14px; bottom: 18px; z-index: 60;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 14px; border-radius: 999px;
+            background: #22c55e; color: #0b1b0f; font-weight: 800;
+            box-shadow: 0 12px 28px rgba(0,0,0,.35); border: 2px solid rgba(0,0,0,.2);
+        }
+        .fab-whatsapp span { font-size: 14px; }
+        .fab-whatsapp svg { width: 20px; height: 20px; }
+
         /* Larger screens */
         @media (min-width: 760px) {
             h2 { font-size: 24px; }
             .two-col { grid-template-columns: 1fr 1fr; }
             .brands { grid-template-columns: repeat(3, 1fr); }
             .slide { height: 420px; }
+            .fab-whatsapp { bottom: 22px; right: 22px; }
         }
     </style>
 </head>
@@ -101,9 +123,24 @@
                 <small data-i18n="tagline">गुणवत्ता • भरोसा • समय पर डिलीवरी</small>
             </div>
         </a>
-        <div class="lang-switch" aria-label="Language selector">
-            <button id="btn-hi" class="active" data-lang="hi" aria-pressed="true">हिं</button>
-            <button id="btn-en" data-lang="en" aria-pressed="false">EN</button>
+
+        <div style="display:flex; align-items:center; gap:10px">
+            <!-- Call / WhatsApp Icons + Number -->
+            <div class="contact-header" aria-label="Quick contact">
+                <a class="icon-btn phone" href="tel:+919999999999" aria-label="Call SSV Textiles">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+                </a>
+                <a class="icon-btn whatsapp" href="https://wa.me/919999999999?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp SSV Textiles">
+                    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/><path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/></svg>
+                </a>
+                <a class="number" href="tel:+919999999999">+91 99999 99999</a>
+            </div>
+
+            <!-- Language switch -->
+            <div class="lang-switch" aria-label="Language selector">
+                <button id="btn-hi" class="active" data-lang="hi" aria-pressed="true">हिं</button>
+                <button id="btn-en" data-lang="en" aria-pressed="false">EN</button>
+            </div>
         </div>
     </div>
 </header>
@@ -232,7 +269,7 @@
                 <h2 style="margin:0 0 8px" data-i18n="contact_title">संपर्क करें</h2>
                 <p class="lead" data-i18n="contact_sub">ऑर्डर, सैंपल या पार्टनरशिप के लिए:</p>
                 <p>📞 <a href="tel:+919999999999">+91 99999 99999</a></p>
-                <p>💬 <a href="https://wa.me/919999999999" target="_blank" rel="noopener">WhatsApp</a></p>
+                <p>💬 <a href="https://wa.me/919999999999?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener">WhatsApp</a></p>
                 <p>✉️ <a href="mailto:hello@ssvtextiles.in">hello@ssvtextiles.in</a></p>
                 <p data-i18n="addr">पता: शोरूम नं. 12, मुख्य बाजार, कानपुर, उत्तर प्रदेश</p>
             </div>
@@ -246,6 +283,14 @@
         </div>
     </footer>
 </main>
+
+<!-- Floating WhatsApp CTA -->
+<a class="fab-whatsapp"
+   href="https://wa.me/919999999999?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye."
+   target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/><path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/></svg>
+    <span>WhatsApp</span>
+</a>
 
 <script>
     // Year
