@@ -5,128 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SSV Textiles | श्री सिद्धिविनायक टेक्सटाइल्स</title>
     <meta name="description" content="Shri Siddhivinayak Textiles (SSV Textiles) – गुणवत्तापूर्ण सूटिंग-शर्टिंग, तेज़ डिलीवरी, और भरोसेमंद सेवा।" />
-    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="theme-color" content="#fef6ee" />
+
+    <!-- Fonts: Poppins (EN), Hind & Noto Sans Devanagari (HI for readability) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Hind:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --bg: #0b0b0c;
-            --card: #121216;
-            --muted: #7f8796;
-            --text: #f2f5f7;
-            --accent: #f59e0b; /* amber */
-            --accent-2: #22c55e; /* green */
-            --brand-tint: rgba(0,0,0,0.45);
+        :root{
+            /* Spacing scale */
+            --space-1: 6px; --space-2: 10px; --space-3: 14px; --space-4: 18px; --space-5: 24px; --space-6: 32px;
+
+            /* Pastel theme */
+            --bg: #fefcf9;                  /* paper off-white */
+            --bg-accent: #fef6ee;           /* pastel peach wash */
+            --surface: #ffffff;             /* card white */
+            --border: rgba(19, 28, 45, .06);
+            --text: #1a2230;
+            --muted: #5e6673;
+
+            /* Pastel accents */
+            --peach: #ffd9c2;
+            --mint: #c6f1df;
+            --lav:  #dcd6ff;
+            --amber:#f2b266;
+            --green:#20c063;
+
             --radius: 16px;
-            --shadow: 0 8px 24px rgba(0,0,0,.25);
+            --shadow: 0 10px 30px rgba(20, 24, 40, .06);
+            --shadow-strong: 0 16px 40px rgba(20, 24, 40, .10);
         }
-        * { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"; }
-        a { color: inherit; text-decoration: none; }
-        img { display: block; width: 100%; height: auto; }
-        .container { width: min(960px, 92vw); margin: 0 auto; }
+
+        *{box-sizing:border-box}
+        html,body{
+            margin:0; padding:0; background:var(--bg); color:var(--text);
+            font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";
+            -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+        }
+        /* Better readability for Hindi text */
+        :root:lang(hi), body:lang(hi){
+            font-family: "Hind", "Noto Sans Devanagari", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        }
+        a{color:inherit;text-decoration:none}
+        img{display:block;width:100%;height:auto}
+        .container{width:min(960px,92vw);margin:0 auto}
 
         /* Header */
-        header { position: sticky; top: 0; z-index: 40; backdrop-filter: saturate(160%) blur(10px);
-            background: rgba(11,11,12,.6); border-bottom: 1px solid rgba(255,255,255,.06); }
-        .nav { display: flex; align-items: center; justify-content: space-between; padding: 10px 4vw; gap: 12px; }
-        .brand { display: flex; align-items: center; gap: 10px; }
-        .logo { width: 36px; height: 36px; border-radius: 12px; background: radial-gradient(circle at 30% 30%, #ffedd5, #fb923c 45%, #7c2d12 100%);
-            box-shadow: inset 0 0 10px rgba(0,0,0,.25); display: grid; place-items: center; font-weight: 800; color: #1b1b1b; }
-        .actions { display: inline-flex; align-items: center; gap: 8px; }
-        .lang-switch { display: inline-flex; align-items: center; gap: 6px; padding: 6px; border-radius: 999px;
-            background: var(--card); border: 1px solid rgba(255,255,255,.08); }
-        .lang-switch button { background: transparent; border: 0; color: var(--muted); padding: 6px 9px; border-radius: 999px; font-weight: 700; cursor: pointer; }
-        .lang-switch button.active { background: #1f2937; color: var(--text); }
+        header{
+            position:sticky; top:0; z-index:40;
+            backdrop-filter:saturate(140%) blur(10px);
+            background:linear-gradient(180deg, rgba(254,246,238,.9), rgba(255,255,255,.85));
+            box-shadow: 0 1px 0 var(--border);
+        }
+        .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 4vw;gap:12px}
+        .brand{display:flex;align-items:center;gap:10px}
 
-        /* Header quick icon buttons (icons only) */
-        .quick-links { display: inline-flex; align-items: center; gap: 8px; margin-right: 4px; }
-        .icon-btn { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 999px;
-            background: var(--card); border: 1px solid rgba(255,255,255,.08); }
-        .icon-btn:active { transform: translateY(1px); }
-        .icon-btn svg { width: 18px; height: 18px; }
+        /* Logo */
+        .logo{
+            width:68px;height:36px;border-radius:999px;
+            background: linear-gradient(135deg, #ffe9de, #fff 60%);
+            outline:1px solid rgba(255, 146, 91, .25);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.8), var(--shadow);
+            display:grid;place-items:center;font-weight:800;letter-spacing:.6px;color:#7a431f;
+        }
 
-        /* Thin top bar under header */
-        .topbar{display:flex;justify-content:center;align-items:center;gap:8px;padding:6px 8px;background:#0f1115;
-            border-bottom:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--muted)}
-        .topbar .topbar-name{font-weight:800;color:var(--text)}
-        .topbar .topbar-call{font-weight:700;color:var(--text)}
+        .actions{display:inline-flex;align-items:center;gap:10px}
+
+        /* Language switcher */
+        .lang-switch{display:inline-flex;align-items:center;gap:6px;padding:6px;border-radius:999px;
+            background:#fff;border:1px solid var(--border);box-shadow:var(--shadow)}
+        .lang-switch button{background:transparent;border:0;color:var(--muted);padding:6px 10px;border-radius:999px;font-weight:700;cursor:pointer}
+        .lang-switch button.active{background:#f0f3ff;color:var(--text);box-shadow:inset 0 0 0 1px rgba(86,100,210,.15)}
+
+        /* Icon buttons (Call / WhatsApp) */
+        .quick-links{display:inline-flex;align-items:center;gap:8px;margin-right:2px}
+        .icon-btn{
+            width:40px;height:40px;border-radius:50%;
+            display:grid;place-items:center;
+            border:1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform .08s ease;
+            background:#fff;
+        }
+        .icon-btn:active{transform:translateY(1px)}
+        .icon-btn svg{width:20px;height:20px}
+        .btn-call{ background: radial-gradient(120% 120% at 30% 20%, #e0f2ff, #ffffff 55%); }
+        .btn-call svg{ color:#1570ef; }
+        .btn-wa  { background: radial-gradient(120% 120% at 30% 20%, #e8fff3, #ffffff 55%); }
+        .btn-wa  svg{ color:#20c063; }
+
+        /* Masthead */
+        .masthead{
+            background:
+                    radial-gradient(60% 60% at 5% 0%, rgba(255,217,194,.45), transparent 55%),
+                    radial-gradient(60% 60% at 95% 10%, rgba(198,241,223,.45), transparent 55%),
+                    linear-gradient(180deg, var(--bg-accent) 0%, #fff 100%);
+            padding:var(--space-4) 4vw var(--space-5); text-align:center;
+            border-bottom:1px solid var(--border);
+        }
+        .masthead h1{ margin:0; font-weight:900; line-height:1.08; font-size:clamp(20px,6.2vw,30px); letter-spacing:.2px; text-shadow:0 1px 0 rgba(255,255,255,.6); }
+        .masthead .sub{ margin-top:var(--space-1); font-size:clamp(12px,3.6vw,14px); color:var(--muted); font-weight:600; }
+
+        /* Sections: unified vertical rhythm */
+        .section{padding:var(--space-5) 4vw}
+        .section > h2{margin:0 0 var(--space-2)}
+        .section > .lead{color:var(--muted);margin:0 0 var(--space-3)}
 
         /* Carousel */
-        .carousel { position: relative; overflow: hidden; border-radius: var(--radius); margin: 12px 4vw 16px; box-shadow: var(--shadow); }
-        .slides { display: flex; transition: transform .5s ease; touch-action: pan-y; }
-        .slide { min-width: 100%; height: 54vw; max-height: 420px; position: relative; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .dots { position: absolute; left: 0; right: 0; bottom: 10px; display: flex; justify-content: center; gap: 6px; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.4); border: 1px solid rgba(0,0,0,.2); }
-        .dot.active { background: #fff; }
-        .car-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.15);
-            width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; color: #fff; cursor: pointer; }
-        .car-btn.left { left: 8px; } .car-btn.right { right: 8px; }
+        .carousel{ position:relative;overflow:hidden;border-radius:20px;margin:var(--space-2) 0 var(--space-3);
+            border:1px solid var(--border); box-shadow:var(--shadow-strong); background:#fff; }
+        .slides{display:flex;transition:transform .5s ease;touch-action:pan-y}
+        .slide{min-width:100%;height:54vw;max-height:420px}
+        .slide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02)}
+        .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
+        .dot{width:8px;height:8px;border-radius:50%;background:rgba(26,34,48,.28);border:1px solid rgba(255,255,255,.8)}
+        .dot.active{background:#1a2230}
+        .car-btn{ position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%; display:grid;place-items:center;cursor:pointer; background:rgba(255,255,255,.95);border:1px solid var(--border);box-shadow:var(--shadow) }
+        .car-btn.left{left:8px}.car-btn.right{right:8px}
 
-        /* Sections */
-        .section { padding: 20px 4vw; }
-        h2 { margin: 0 0 12px; font-size: 20px; }
-        p.lead { color: var(--muted); margin: 6px 0 0; }
+        /* Cards */
+        .card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:var(--space-3);box-shadow:var(--shadow)}
 
-        /* Section 2: About (image placeholder + text) */
-        .two-col { display: grid; gap: 16px; grid-template-columns: 1fr; }
-        .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
-        .video-wrap, .image-wrap { aspect-ratio: 16/9; overflow: hidden; border-radius: 12px; }
-        .image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        /* About */
+        .two-col{display:grid;gap:var(--space-3);grid-template-columns:1fr}
 
-        /* Section 3: Counters */
-        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .stat { text-align: center; background: linear-gradient(180deg, #111218, #0c0d11); border: 1px solid rgba(255,255,255,.06);
-            border-radius: 14px; padding: 16px 10px; }
-        .stat .num { font-size: 28px; font-weight: 800; letter-spacing: .5px; }
-        .stat .lab { font-size: 12px; color: var(--muted); margin-top: 4px; }
+        /* Stats */
+        .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+        .stat{ text-align:center;background:linear-gradient(180deg, #fff, #fcfdff); border:1px solid var(--border);border-radius:18px;padding:16px 10px;box-shadow:var(--shadow) }
+        .stat .num{font-size:28px;font-weight:800;letter-spacing:.5px}
+        .stat .lab{font-size:12px;color:var(--muted);margin-top:4px}
 
-        /* Section 4: Brands */
-        .brands { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .brand-card { position: relative; border-radius: 14px; overflow: hidden; height: 124px; border: 1px solid rgba(255,255,255,.06); }
-        .brand-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.2) saturate(.9) contrast(1); }
-        .brand-card::after { content: ""; position: absolute; inset: 0; background: var(--brand-tint); }
-        .brand-card span { position: absolute; left: 12px; bottom: 10px; font-weight: 800; letter-spacing: .3px;
-            text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+        /* Brands – black-tainted images with centered logos */
+        .brands{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+        .brand-card{ position:relative;border-radius:18px;overflow:hidden;height:124px; border:1px solid var(--border);box-shadow:var(--shadow); background:#000; }
+        .brand-card .bg{position:absolute;inset:0;filter:grayscale(60%) contrast(1.1) brightness(.7);object-fit:cover;width:100%;height:100%}
+        .brand-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.15))}
+        .brand-card .logo{position:absolute;inset:auto 12px 12px 12px;display:flex;align-items:center;gap:8px}
+        .brand-card .logo img{height:24px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+        .brand-card .logo span{font-weight:800;letter-spacing:.3px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+        .brand-card.centered .logo{inset:50% auto auto 50%;transform:translate(-50%,-50%)}
 
-        /* Section 5: Testimonials (condensed) */
-        .testis{display:grid;grid-template-columns:1fr;gap:12px}
-        @media(min-width:480px){.testis{grid-template-columns:1fr 1fr}}
-        .testi{background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 12px; display:grid; gap:6px}
-        .testi .who { font-weight: 700; }
-        .stars { font-size: 14px; color: var(--accent); }
+        /* Testimonials: ALWAYS 2 columns on mobile */
+        .testis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+        .testi{ background:linear-gradient(180deg, #fff, #f9fbff); border:1px solid var(--border);border-radius:18px;padding:12px;display:grid;gap:6px;box-shadow:var(--shadow) }
+        .testi p{margin:0;font-size:13px;line-height:1.45}
+        .testi .who{font-weight:700;font-size:12px;color:var(--muted)}
+        .stars{font-size:14px;color:#f59e0b}
 
-        /* Footer split */
-        footer { margin-top: 20px; background: #0f1115; border-top: 1px solid rgba(255,255,255,.08); }
+        /* Footer */
+        footer{ margin-top:var(--space-5); background:
+                radial-gradient(80% 60% at 0% 0%, rgba(220,214,255,.35), transparent 55%),
+                radial-gradient(80% 60% at 100% 10%, rgba(198,241,223,.35), transparent 50%),
+                #fff; border-top:1px solid var(--border); }
         .footer-grid{display:grid;grid-template-columns:1fr;gap:16px;padding:18px 4vw}
         @media(min-width:620px){.footer-grid{grid-template-columns:1fr 1fr}}
-        .contact a { color: var(--text); display: inline-block; margin: 4px 0; }
-        .map { overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,.06); }
-        .copy { border-top: 1px solid rgba(255,255,255,.06); color: var(--muted); font-size: 12px; padding: 12px 4vw; text-align: center; }
 
-        /* Floating WhatsApp CTA */
-        .fab-whatsapp {
-            position: fixed; right: 14px; bottom: 18px; z-index: 60;
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 12px 14px; border-radius: 999px;
-            background: #22c55e; color: #0b1b0f; font-weight: 800;
-            box-shadow: 0 12px 28px rgba(0,0,0,.35); border: 2px solid rgba(0,0,0,.2);
-        }
-        .fab-whatsapp span { font-size: 14px; }
-        .fab-whatsapp svg { width: 20px; height: 20px; }
+        /* Footer rows inline + compact spacing */
+        .contact .row{display:flex;align-items:center;gap:10px;margin:8px 0}
+        .contact .row a{display:inline-flex;align-items:center}
+        .contact .row .label{min-width:0}
+        .contact .lead{margin:0 0 var(--space-2)}
+
+        .map{overflow:hidden;border-radius:18px;border:1px solid var(--border);background:#fff;box-shadow:var(--shadow)}
+        .copy{ border-top:1px solid var(--border);color:var(--muted);font-size:12px; padding:12px 4vw;text-align:center;background:#fff }
+
+        /* Small icon bubbles */
+        .chip{ width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto; border:1px solid var(--border);box-shadow:var(--shadow);background:#fff }
+        .chip.call{background:radial-gradient(120% 120% at 30% 20%, #e0f2ff, #ffffff 55%)}
+        .chip.call svg{color:#1570ef;width:16px;height:16px}
+        .chip.wa{background:radial-gradient(120% 120% at 30% 20%, #e8fff3, #ffffff 55%)}
+        .chip.wa svg{color:#20c063;width:16px;height:16px}
+        .chip.mail svg{color:#7c5cff;width:16px;height:16px}
+
+        /* WhatsApp FAB */
+        .fab-whatsapp{ position:fixed;right:14px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:10px; padding:12px 14px;border-radius:999px;background:linear-gradient(135deg, #3bd179, #20c063); color:#ffffff;font-weight:800; box-shadow:0 18px 40px rgba(32,192,99,.35), 0 1px 0 rgba(255,255,255,.4) inset; border:1px solid rgba(0,0,0,.06) }
+        .fab-whatsapp span{font-size:14px}
+        .fab-whatsapp svg{width:20px;height:20px;color:#fff}
 
         /* Larger screens */
-        @media (min-width: 760px) {
-            h2 { font-size: 24px; }
-            .two-col { grid-template-columns: 1fr 1fr; }
-            .brands { grid-template-columns: repeat(3, 1fr); }
-            .slide { height: 420px; }
-            .fab-whatsapp { bottom: 22px; right: 22px; }
+        @media (min-width:760px){
+            h2{font-size:24px}
+            .brands{grid-template-columns:repeat(3,1fr)}
+            .slide{height:420px}
+            .fab-whatsapp{bottom:22px;right:22px}
         }
     </style>
 </head>
 <body>
-<!-- Header -->
 <header>
     <div class="nav container" role="navigation" aria-label="Primary">
         <a href="#top" class="brand" aria-label="SSV Textiles Home">
@@ -134,17 +198,18 @@
         </a>
 
         <div class="actions">
-            <!-- Icons only: phone & WhatsApp -->
             <div class="quick-links" aria-label="Quick contact">
-                <a class="icon-btn" href="tel:+919999999999" aria-label="Call SSV Textiles">
+                <a class="icon-btn btn-call" href="tel:+919414371251" aria-label="Call SSV Textiles">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
                 </a>
-                <a class="icon-btn" href="https://wa.me/919999999999?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp SSV Textiles">
-                    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/><path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/></svg>
+                <a class="icon-btn btn-wa" href="https://wa.me/919414371251?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp SSV Textiles">
+                    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                        <path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
+                        <path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/>
+                    </svg>
                 </a>
             </div>
 
-            <!-- Language switcher -->
             <div class="lang-switch" aria-label="Language selector">
                 <button id="btn-hi" class="active" data-lang="hi" aria-pressed="true">हिं</button>
                 <button id="btn-en" data-lang="en" aria-pressed="false">EN</button>
@@ -153,18 +218,17 @@
     </div>
 </header>
 
-<!-- Slim center strip (beneath header, above carousel) -->
-<div class="topbar" role="contentinfo">
-    <span class="topbar-name" data-i18n="site_name">श्री सिद्धिविनायक टेक्सटाइल्स</span> •
-    <a class="topbar-call" href="tel:+919999999999" aria-label="Call SSV Textiles">+91&nbsp;99999&nbsp;99999</a>
-</div>
+<!-- Masthead -->
+<section class="masthead" role="region" aria-label="Business intro">
+    <h1 data-i18n="site_name">श्री सिद्धिविनायक टेक्सटाइल्स</h1>
+    <div class="sub" data-i18n="tagline">गुणवत्ता • भरोसा • समय पर डिलीवरी</div>
+</section>
 
 <main id="top">
-    <!-- Section 1: Carousel -->
+    <!-- Hero / Carousel -->
     <section class="section" aria-label="Hero">
         <div class="carousel" id="carousel" aria-roledescription="carousel">
             <div class="slides" id="slides">
-                <!-- Replace src with your images (1200x600 recommended) -->
                 <div class="slide"><img src="https://images.unsplash.com/photo-1585559605151-8e8dcf7f3d01?q=80&w=1600&auto=format&fit=crop" alt="Premium suiting fabrics" /></div>
                 <div class="slide"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" alt="Modern textile machinery" /></div>
                 <div class="slide"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1600&auto=format&fit=crop" alt="Shirting fabrics display" /></div>
@@ -177,17 +241,11 @@
         </div>
     </section>
 
-    <!-- Section 2: About (image placeholder + text) -->
+    <!-- About (text only) -->
     <section class="section container" id="about">
         <h2 data-i18n="about_title">हमारे बारे में</h2>
         <p class="lead" data-i18n="about_sub">SSV Textiles – सूटिंग-शर्टिंग की चुनिंदा वैरायटी, छोटे लॉट्स में, तेज़ डिलीवरी के साथ।</p>
         <div class="two-col">
-            <div class="card">
-                <div class="image-wrap">
-                    <!-- Replace with your banner image -->
-                    <img src="https://via.placeholder.com/1280x720?text=SSV+Textiles+Showcase" alt="SSV Textiles showcase" />
-                </div>
-            </div>
             <div class="card">
                 <h3 style="margin:0 0 6px" data-i18n="about_head">क्यों चुने SSV Textiles?</h3>
                 <ul style="margin:0; padding-left:18px; line-height:1.6">
@@ -201,7 +259,7 @@
         </div>
     </section>
 
-    <!-- Section 3: Animated Counters -->
+    <!-- Stats -->
     <section class="section container" id="stats">
         <h2 data-i18n="stats_title">हमारी उपलब्धियाँ</h2>
         <p class="lead" data-i18n="stats_sub">वृद्धि जो भरोसा बनाती है।</p>
@@ -221,78 +279,110 @@
         </div>
     </section>
 
-    <!-- Section 4: Brand Associations -->
+    <!-- Brands (logos on black-tainted images) -->
     <section class="section container" id="brands">
         <h2 data-i18n="brands_title">हमारे ब्रांड एसोसिएशंस</h2>
         <p class="lead" data-i18n="brands_sub">विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।</p>
         <div class="brands" role="list">
-            <div class="brand-card" role="listitem">
-                <img src="https://images.unsplash.com/photo-1555529771-35a38c7e9f9f?q=80&w=1200&auto=format&fit=crop" alt="Raymond" />
-                <span>Raymond</span>
+            <!-- Raymond -->
+            <div class="brand-card centered" role="listitem">
+                <img class="bg" src="https://images.unsplash.com/photo-1555529771-35a38c7e9f9f?q=80&w=1200&auto=format&fit=crop" alt="Raymond background"/>
+                <div class="logo"><img src="assets/logos/raymond.svg" alt="Raymond"/></div>
             </div>
-            <div class="brand-card" role="listitem">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Siyaram's" />
-                <span>Siyarams</span>
+            <!-- Siyarams -->
+            <div class="brand-card centered" role="listitem">
+                <img class="bg" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Siyarams background"/>
+                <div class="logo"><img src="assets/logos/siyarams.svg" alt="Siyarams"/></div>
             </div>
-            <div class="brand-card" role="listitem">
-                <img src="https://images.unsplash.com/photo-1464660439080-b79116909ce7?q=80&w=1200&auto=format&fit=crop" alt="Donear" />
-                <span>Donear</span>
+            <!-- Donear -->
+            <div class="brand-card centered" role="listitem">
+                <img class="bg" src="https://images.unsplash.com/photo-1464660439080-b79116909ce7?q=80&w=1200&auto=format&fit=crop" alt="Donear background"/>
+                <div class="logo"><img src="assets/logos/donear.svg" alt="Donear"/></div>
             </div>
-            <div class="brand-card" role="listitem">
-                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200&auto=format&fit=crop" alt="Arvind" />
-                <span>Arvind</span>
+            <!-- Grasim (replaces Arvind) -->
+            <div class="brand-card centered" role="listitem">
+                <img class="bg" src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200&auto=format&fit=crop" alt="Grasim background"/>
+                <div class="logo"><img src="assets/logos/grasim.svg" alt="Grasim"/></div>
             </div>
-            <div class="brand-card" role="listitem">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop" alt="Ramesh" />
-                <span>Ramesh</span>
+            <!-- OCM -->
+            <div class="brand-card centered" role="listitem">
+                <img class="bg" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop" alt="OCM background"/>
+                <div class="logo"><img src="assets/logos/ocm.svg" alt="OCM"/></div>
             </div>
+            <!-- And more -->
             <div class="brand-card" role="listitem">
-                <img src="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=1200&auto=format&fit=crop" alt="More" />
-                <span data-i18n="and_more">और भी</span>
+                <img class="bg" src="https://images.unsplash.com/photo-1475178626620-a4d074967452?q=80&w=1200&auto=format&fit=crop" alt="More"/>
+                <div class="logo">
+                    <img src="assets/logos/vimal.svg" alt="Vimal"/>
+                    <img src="assets/logos/bombay-dyeing.svg" alt="Bombay Dyeing"/>
+                    <img src="assets/logos/mafatlal.svg" alt="Mafatlal"/>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Testimonials (condensed grid) -->
+    <!-- Testimonials (2-up on mobile) -->
     <section class="section container" id="testimonials">
         <h2 data-i18n="testi_title">ग्राहक क्या कहते हैं</h2>
         <div class="testis">
             <div class="testi">
                 <div class="stars">★★★★★</div>
                 <p data-i18n="t1">“छोटे शहर की दुकान के लिए छोटे-छोटे लॉट्स में इतनी वैरायटी मिलना बहुत मददगार रहा।”</p>
-                <div class="who">— राजीव कुमार, <span data-i18n="t1_city">झाँसी</span></div>
+                <div class="who">— <span data-i18n="t1_name">राजीव कुमार</span>, <span data-i18n="t1_city">झाँसी</span></div>
             </div>
             <div class="testi">
                 <div class="stars">★★★★★</div>
                 <p data-i18n="t2">“कपड़े की क्वालिटी और टाइम पर डिलीवरी – दोनों बेहतरीन। हमारे कस्टमर खुश हैं।”</p>
-                <div class="who">— अंजलि गुप्ता, <span data-i18n="t2_city">कोटा</span></div>
+                <div class="who">— <span data-i18n="t2_name">अंजलि गुप्ता</span>, <span data-i18n="t2_city">कोटा</span></div>
             </div>
             <div class="testi">
                 <div class="stars">★★★★☆</div>
                 <p data-i18n="t3">“हर महीने नए डिज़ाइन्स आने से स्टॉक फ्रेश रहता है। सेल बढ़ी है।”</p>
-                <div class="who">— इमरान शेख, <span data-i18n="t3_city">गोरखपुर</span></div>
+                <div class="who">— <span data-i18n="t3_name">इमरान शेख</span>, <span data-i18n="t3_city">गोरखपुर</span></div>
             </div>
             <div class="testi">
                 <div class="stars">★★★★★</div>
-                <p>“Prices are honest and margins are good. Dispatch is super quick.”</p>
-                <div class="who">— Nisha Patel, Surat</div>
+                <p data-i18n="t4">“Prices are honest and margins are good. Dispatch is super quick.”</p>
+                <div class="who">— <span data-i18n="t4_name">Nisha Patel</span>, <span data-i18n="t4_city">Surat</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Section 6: Footer / Contact -->
+    <!-- Footer -->
     <footer id="contact">
         <div class="footer-grid container">
             <div class="contact">
                 <h2 style="margin:0 0 8px" data-i18n="contact_title">संपर्क करें</h2>
                 <p class="lead" data-i18n="contact_sub">ऑर्डर, सैंपल या पार्टनरशिप के लिए:</p>
-                <p>📞 <a href="tel:+919999999999">+91 99999 99999</a></p>
-                <p>💬 <a href="https://wa.me/919999999999?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener">WhatsApp</a></p>
-                <p>✉️ <a href="mailto:hello@ssvtextiles.in">hello@ssvtextiles.in</a></p>
-                <p data-i18n="addr">पता: शोरूम नं. 12, मुख्य बाजार, कानपुर, उत्तर प्रदेश</p>
+
+                <div class="row">
+                    <span class="chip call" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.54a1 1 0 01-.91 1 16 16 0 01-14-14 1 1 0 011-1h3.55a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
+                    </span>
+                    <a href="tel:+919414371251">+91 94143 71251</a>
+                </div>
+
+                <div class="row">
+                    <span class="chip wa" aria-hidden="true">
+                        <svg viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
+                            <path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/>
+                        </svg>
+                    </span>
+                    <a href="https://wa.me/919414371251?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener">WhatsApp</a>
+                </div>
+
+                <div class="row">
+                    <span class="chip mail" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </span>
+                    <a href="mailto:ssvtextiles.india@gmail.com">ssvtextiles.india@gmail.com</a>
+                </div>
+
+                <p data-i18n="addr">पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003</p>
             </div>
+
             <div class="map">
-                <!-- Replace the src with your Google Maps embed link -->
                 <iframe title="SSV Textiles Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019575927056!2d-122.419415!3d37.774929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjciTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sin!4v1610000000000"
                         width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -304,10 +394,11 @@
 </main>
 
 <!-- Floating WhatsApp CTA -->
-<a class="fab-whatsapp"
-   href="https://wa.me/919999999999?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye."
-   target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/><path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/></svg>
+<a class="fab-whatsapp" href="https://wa.me/919414371251?text=Namaste%20SSV%20Textiles%2C%20mujhe%20fabric%20ke%20baare%20mein%20jankari%20chahiye." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path d="M19.11 17.23c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.48-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.46-.16-.01-.34-.01-.52-.01s-.48.07-.73.34c-.25.27-.96.94-.96 2.3s.99 2.67 1.12 2.86c.14.18 1.95 2.98 4.73 4.18.66.28 1.17.45 1.57.58.66.21 1.27.18 1.75.11.53-.08 1.62-.66 1.85-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
+        <path d="M26.01 5.99A10.93 10.93 0 0016 .05C8.85.05 3 5.9 3 13.06c0 1.98.52 3.8 1.43 5.39L3 29l10.78-1.41A10.95 10.95 0 0026.01 5.99zm-10 .99c5.06 0 9.16 4.1 9.16 9.16s-4.1 9.16-9.16 9.16a9.1 9.1 0 01-4.67-1.29l-.33-.2-6.36.83.85-6.2-.22-.35a9.13 9.13 0 01-1.43-4.92c0-5.06 4.1-9.16 9.16-9.16z"/>
+    </svg>
     <span>WhatsApp</span>
 </a>
 
@@ -315,128 +406,117 @@
     // Year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Simple carousel
-    const slides = document.getElementById('slides');
-    const total = slides.children.length;
-    let idx = 0, startX = 0, currentX = 0, isDown = false, auto;
-    const dotsWrap = document.getElementById('dots');
-    for (let i = 0; i < total; i++) {
-        const d = document.createElement('div'); d.className = 'dot' + (i===0?' active':''); dotsWrap.appendChild(d);
-        d.addEventListener('click', () => go(i));
-    }
-    const dots = dotsWrap.children;
-    function go(i){ idx = (i+total)%total; slides.style.transform = `translateX(-${idx*100}%)`; [...dots].forEach((dot,j)=>dot.classList.toggle('active', j===idx)); restart(); }
-    function next(){ go(idx+1); }
-    function prev(){ go(idx-1); }
-    function restart(){ clearInterval(auto); auto = setInterval(next, 4000); }
-    restart();
-    document.getElementById('next').onclick = next; document.getElementById('prev').onclick = prev;
-
-    // Swipe
-    slides.addEventListener('pointerdown', e=>{ isDown=true; startX=e.clientX; slides.style.transition='none'; clearInterval(auto); });
-    window.addEventListener('pointerup', ()=>{ if(!isDown) return; isDown=false; slides.style.transition='transform .5s ease'; const dx=currentX-startX; if (Math.abs(dx)>40){ dx>0?prev():next(); } else { go(idx); } });
-    window.addEventListener('pointermove', e=>{ if(!isDown) return; currentX=e.clientX; const dx=currentX-startX; slides.style.transform=`translateX(calc(-${idx*100}% + ${dx}px))`; });
+    // Carousel
+    const slides=document.getElementById('slides');
+    const total=slides.children.length;
+    let idx=0,startX=0,currentX=0,isDown=false,auto;
+    const dotsWrap=document.getElementById('dots');
+    for(let i=0;i<total;i++){const d=document.createElement('div');d.className='dot'+(i===0?' active':'');dotsWrap.appendChild(d);d.addEventListener('click',()=>go(i));}
+    const dots=dotsWrap.children;
+    function go(i){idx=(i+total)%total;slides.style.transform=`translateX(-${idx*100}%)`;[...dots].forEach((dot,j)=>dot.classList.toggle('active',j===idx));restart();}
+    function next(){go(idx+1)} function prev(){go(idx-1)}
+    function restart(){clearInterval(auto);auto=setInterval(next,4500)} restart();
+    document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
+    slides.addEventListener('pointerdown',e=>{isDown=true;startX=e.clientX;slides.style.transition='none';clearInterval(auto)});
+    window.addEventListener('pointerup',()=>{if(!isDown)return;isDown=false;slides.style.transition='transform .5s ease';const dx=currentX-startX;if(Math.abs(dx)>40){dx>0?prev():next()}else{go(idx)}});
+    window.addEventListener('pointermove',e=>{if(!isDown)return;currentX=e.clientX;const dx=currentX-startX;slides.style.transform=`translateX(calc(-${idx*100}% + ${dx}px))`});
 
     // Counters on view
-    const observer = new IntersectionObserver((ents)=>{
+    const observer=new IntersectionObserver((ents)=>{
         ents.forEach(ent=>{
             if(ent.isIntersecting){
                 ent.target.querySelectorAll('[data-count-to]').forEach(el=>{
-                    if(el.dataset.done) return; el.dataset.done = '1';
-                    const end = parseInt(el.dataset.countTo,10); const dur = 1200; const t0 = performance.now();
-                    function tick(t){ const p = Math.min(1, (t-t0)/dur); const val = Math.floor(end * (0.1 + 0.9 * p*p)); el.textContent = val.toLocaleString('en-IN'); if(p<1) requestAnimationFrame(tick); }
+                    if(el.dataset.done)return;el.dataset.done='1';
+                    const end=parseInt(el.dataset.countTo,10);const dur=1200;const t0=performance.now();
+                    function tick(t){const p=Math.min(1,(t-t0)/dur);const val=Math.floor(end*(0.1+0.9*p*p));el.textContent=val.toLocaleString('en-IN');if(p<1)requestAnimationFrame(tick)}
                     requestAnimationFrame(tick);
                 });
             }
         });
-    }, { threshold: .4 });
+    },{threshold:.4});
     observer.observe(document.getElementById('stats'));
 
     // i18n
-    const STRINGS = {
-        hi: {
-            site_name: 'श्री सिद्धिविनायक टेक्सटाइल्स',
-            tagline: 'गुणवत्ता • भरोसा • समय पर डिलीवरी',
-            about_title: 'हमारे बारे में',
-            about_sub: 'SSV Textiles – सूटिंग-शर्टिंग की चुनिंदा वैरायटी, छोटे लॉट्स में, तेज़ डिलीवरी के साथ।',
-            about_head: 'क्यों चुने SSV Textiles?',
-            about_point1: 'छोटे लॉट्स (2.5m / 4m / 10m) – टियर 2/3 रिटेलर्स के लिए उपयुक्त।',
-            about_point2: 'गुणवत्ता आश्वासन – कलरफास्टनेस, श्रिंक-कंट्रोल, स्ट्रॉन्ग वीविंग।',
-            about_point3: 'तेज़ डिस्पैच – 24 घंटे में पैकिंग व शिपमेंट।',
-            about_point4: 'हर महीने नए डिज़ाइन्स – ट्रेंड्स के साथ अप-टू-डेट।',
-            about_point5: 'ईमानदार कीमत – बेहतरीन मार्जिन के साथ।',
-            stats_title: 'हमारी उपलब्धियाँ',
-            stats_sub: 'वृद्धि जो भरोसा बनाती है।',
-            stat1: 'कुल ऑर्डर्स',
-            stat2: 'रिटेलर पार्टनर्स',
-            stat3: 'कस्टमर्स सर्व्ड',
-            brands_title: 'हमारे ब्रांड एसोसिएशंस',
-            brands_sub: 'विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।',
-            and_more: 'और भी',
-            testi_title: 'ग्राहक क्या कहते हैं',
-            t1: '“छोटे शहर की दुकान के लिए छोटे-छोटे लॉट्स में इतनी वैरायटी मिलना बहुत मददगार रहा।”',
-            t1_city: 'झाँसी',
-            t2: '“कपड़े की क्वालिटी और टाइम पर डिलीवरी – दोनों बेहतरीन। हमारे कस्टमर खुश हैं।”',
-            t2_city: 'कोटा',
-            t3: '“हर महीने नए डिज़ाइन्स आने से स्टॉक फ्रेश रहता है। सेल बढ़ी है।”',
-            t3_city: 'गोरखपुर',
-            contact_title: 'संपर्क करें',
-            contact_sub: 'ऑर्डर, सैंपल या पार्टनरशिप के लिए:',
-            addr: 'पता: शोरूम नं. 12, मुख्य बाजार, कानपुर, उत्तर प्रदेश',
-            rights: 'सर्वाधिकार सुरक्षित',
-            footer_note: 'All rights reserved SSV Textiles'
+    const STRINGS={
+        hi:{
+            site_name:'श्री सिद्धिविनायक टेक्सटाइल्स',
+            tagline:'गुणवत्ता • भरोसा • समय पर डिलीवरी',
+            about_title:'हमारे बारे में',
+            about_sub:'SSV Textiles – सूटिंग-शर्टिंग की चुनिंदा वैरायटी, छोटे लॉट्स में, तेज़ डिलीवरी के साथ।',
+            about_head:'क्यों चुने SSV Textiles?',
+            about_point1:'छोटे लॉट्स (2.5m / 4m / 10m) – टियर 2/3 रिटेलर्स के लिए उपयुक्त।',
+            about_point2:'गुणवत्ता आश्वासन – कलरफास्टनेस, श्रिंक-कंट्रोल, स्ट्रॉन्ग वीविंग।',
+            about_point3:'तेज़ डिस्पैच – 24 घंटे में पैकिंग व शिपमेंट।',
+            about_point4:'हर महीने नए डिज़ाइन्स – ट्रेंड्स के साथ अप-टू-डेट।',
+            about_point5:'ईमानदार कीमत – बेहतरीन मार्जिन के साथ।',
+            stats_title:'हमारी उपलब्धियाँ',
+            stats_sub:'वृद्धि जो भरोसा बनाती है।',
+            stat1:'कुल ऑर्डर्स',stat2:'रिटेलर पार्टनर्स',stat3:'कस्टमर्स सर्व्ड',
+            brands_title:'हमारे ब्रांड एसोसिएशंस',
+            brands_sub:'विश्वसनीय ब्रांड जिनके साथ हम काम करते हैं।',
+            and_more:'और भी',
+            testi_title:'ग्राहक क्या कहते हैं',
+            t1:'“छोटे शहर की दुकान के लिए छोटे-छोटे लॉट्स में इतनी वैरायटी मिलना बहुत मददगार रहा।”',
+            t1_name:'राजीव कुमार', t1_city:'झाँसी',
+            t2:'“कपड़े की क्वालिटी और टाइम पर डिलीवरी – दोनों बेहतरीन। हमारे कस्टमर खुश हैं।”',
+            t2_name:'अंजलि गुप्ता', t2_city:'कोटा',
+            t3:'“हर महीने नए डिज़ाइन्स आने से स्टॉक फ्रेश रहता है। सेल बढ़ी है।”',
+            t3_name:'इमरान शेख', t3_city:'गोरखपुर',
+            t4:'“कीमतें ईमानदार और मार्जिन अच्छे हैं। डिस्पैच बहुत तेज़ है।”',
+            t4_name:'निशा पटेल', t4_city:'सूरत',
+            contact_title:'संपर्क करें',
+            contact_sub:'ऑर्डर, सैंपल या पार्टनरशिप के लिए:',
+            addr:'पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003',
+            rights:'सर्वाधिकार सुरक्षित',
+            footer_note:'All rights reserved SSV Textiles'
         },
-        en: {
-            site_name: 'Shri SiddhiVinayak Textiles',
-            tagline: 'Quality • Trust • On-time Delivery',
-            about_title: 'About Us',
-            about_sub: 'SSV Textiles – curated suiting & shirting, small lots, with swift dispatch.',
-            about_head: 'Why Choose SSV Textiles?',
-            about_point1: 'Small lots (2.5m / 4m / 10m) – perfect for tier-2/3 retailers.',
-            about_point2: 'Quality assurance – colorfastness, shrink control, strong weaving.',
-            about_point3: 'Fast dispatch – packing & shipment within 24 hours.',
-            about_point4: 'New designs monthly – always on trend.',
-            about_point5: 'Honest pricing – great margins.',
-            stats_title: 'Our Milestones',
-            stats_sub: 'Growth that builds trust.',
-            stat1: 'Total Orders',
-            stat2: 'Retailer Partners',
-            stat3: 'Customers Served',
-            brands_title: 'Brand Associations',
-            brands_sub: 'Trusted brands we work with.',
-            and_more: 'and more',
-            testi_title: 'Testimonials',
-            t1: '“For a small-city shop, getting so much variety in small lots has been a big help.”',
-            t1_city: 'Jhansi',
-            t2: '“Excellent fabric quality and on-time delivery. Our customers are happy.”',
-            t2_city: 'Kota',
-            t3: '“Monthly new designs keep our stock fresh. Sales have improved.”',
-            t3_city: 'Gorakhpur',
-            contact_title: 'Contact Us',
-            contact_sub: 'For orders, samples, or partnerships:',
-            addr: 'Address: Showroom No. 12, Main Market, Kanpur, Uttar Pradesh',
-            rights: 'All rights reserved',
-            footer_note: 'All rights reserved SSV Textiles'
+        en:{
+            site_name:'Shri SiddhiVinayak Textiles',
+            tagline:'Leading wholesalers in suiting & shirting.',
+            about_title:'About Us',
+            about_sub:'SSV Textiles – curated suiting & shirting, small lots, with swift dispatch.',
+            about_head:'Why Choose SSV Textiles?',
+            about_point1:'Small lots (2.5m / 4m / 10m) – perfect for tier-2/3 retailers.',
+            about_point2:'Quality assurance – colorfastness, shrink control, strong weaving.',
+            about_point3:'Fast dispatch – packing & shipment within 24 hours.',
+            about_point4:'New designs monthly – always on trend.',
+            about_point5:'Honest pricing – great margins.',
+            stats_title:'Our Milestones',
+            stats_sub:'Growth that builds trust.',
+            stat1:'Total Orders',stat2:'Retailer Partners',stat3:'Customers Served',
+            brands_title:'Brand Associations',
+            brands_sub:'Trusted brands we work with.',
+            and_more:'and more',
+            testi_title:'Testimonials',
+            t1:'“For a small-city shop, getting so much variety in small lots has been a big help.”',
+            t1_name:'Rajeev Kumar', t1_city:'Jhansi',
+            t2:'“Excellent fabric quality and on-time delivery. Our customers are happy.”',
+            t2_name:'Anjali Gupta', t2_city:'Kota',
+            t3:'“Monthly new designs keep our stock fresh. Sales have improved.”',
+            t3_name:'Imran Sheikh', t3_city:'Gorakhpur',
+            t4:'“Prices are honest and margins are good. Dispatch is super quick.”',
+            t4_name:'Nisha Patel', t4_city:'Surat',
+            contact_title:'Contact Us',
+            contact_sub:'For orders, samples, or partnerships:',
+            addr:'Address: Shop. No. 6&7, 1st floor, Katla Purohit ji ka Hanuman Mandir ke Piche, New cloth Market Gujar Wada, Wali Gali, Tripolia Bazar, Biseswarji, Jaipur, Rajasthan 302003',
+            rights:'All rights reserved',
+            footer_note:'All rights reserved SSV Textiles'
         }
     };
 
     function applyLang(lang){
-        const dict = STRINGS[lang] || STRINGS.hi;
+        const dict=STRINGS[lang]||STRINGS.hi;
         document.querySelectorAll('[data-i18n]').forEach(el=>{
-            const key = el.getAttribute('data-i18n');
-            if (dict[key]) el.textContent = dict[key];
+            const key=el.getAttribute('data-i18n'); if(dict[key]) el.textContent=dict[key];
         });
-        document.documentElement.lang = lang;
-        document.getElementById('btn-hi').classList.toggle('active', lang==='hi');
-        document.getElementById('btn-en').classList.toggle('active', lang==='en');
-        localStorage.setItem('ssv-lang', lang);
+        document.documentElement.lang=lang;
+        document.getElementById('btn-hi').classList.toggle('active',lang==='hi');
+        document.getElementById('btn-en').classList.toggle('active',lang==='en');
+        localStorage.setItem('ssv-lang',lang);
     }
-
-    document.getElementById('btn-hi').addEventListener('click', ()=>applyLang('hi'));
-    document.getElementById('btn-en').addEventListener('click', ()=>applyLang('en'));
-
-    // Load saved language (default: hi)
-    applyLang(localStorage.getItem('ssv-lang') || 'hi');
+    document.getElementById('btn-hi').addEventListener('click',()=>applyLang('hi'));
+    document.getElementById('btn-en').addEventListener('click',()=>applyLang('en'));
+    applyLang(localStorage.getItem('ssv-lang')||'hi');
 </script>
 </body>
 </html>
