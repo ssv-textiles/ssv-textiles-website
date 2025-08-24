@@ -7,6 +7,10 @@
     <meta name="description" content="Shri Siddhi Vinayak Textiles — curated suiting & shirting in small lots, fast dispatch, trusted since 1992." />
     <meta name="theme-color" content="#111827" />
 
+    <!-- Favicon / App Icons -->
+    <link rel="icon" type="image/png" href="images/logos/ssv-textiles-logo.png" />
+    <link rel="apple-touch-icon" href="images/logos/ssv-textiles-logo.png" />
+
     <!-- Fonts: Poppins (EN), Hind/Noto Sans Devanagari (HI) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Hind:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -21,7 +25,7 @@
             --border: rgba(15, 23, 42, .10);
 
             --bg-white:#ffffff;      /* section A */
-            --bg-gray:#eef2f7;       /* section B (slightly darker, bluish) */
+            --bg-gray:#eef2f7;       /* section B */
             --header:#1f2937;        /* dark gray header/footer */
             --headerText:#e5e7eb;
 
@@ -76,8 +80,28 @@
         /* carousel */
         .carousel{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--border);box-shadow:var(--shadow-strong);background:#fff}
         .slides{display:flex;transition:transform .5s ease;touch-action:pan-y}
-        .slide{min-width:100%;height:54vw;max-height:420px}
+        .slide{position:relative;min-width:100%;height:54vw;max-height:420px}
         .slide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02)}
+
+        /* CAPTION BOX on slides */
+        .cap{
+            position:absolute;
+            top:88%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            max-width:80%;
+            background:rgba(17,24,39,.58);  /* grey taint */
+            color:#ffffff;
+            padding:14px 18px;
+            border-radius:12px;
+            font-size:clamp(14px,3.8vw,18px);
+            font-weight:700;
+            line-height:1.4;
+            text-align:center;
+            box-shadow:0 6px 18px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.06) inset;
+            backdrop-filter: blur(2px);
+        }
+
         .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
         .dot{width:8px;height:8px;border-radius:50%;background:rgba(26,34,48,.28);border:1px solid rgba(255,255,255,.8)}
         .dot.active{background:#1a2230}
@@ -89,10 +113,9 @@
         .quote p{margin:0;font-size:15px;line-height:1.7}
         .quote em{font-style:normal}
 
-        /* stats (cards only) */
+        /* stats (dark cards + centered) */
         .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
         .stat{
-            /* DARK GREY CARD + PERFECT CENTERING */
             background:#111827; color:#ffffff;
             border:1px solid rgba(255,255,255,.10); border-radius:18px; box-shadow:var(--shadow);
             display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -140,9 +163,9 @@
         .chip svg{width:18px;height:18px}
         .lead-contrast{ color:#ffffff; font-weight:700 }
 
-        .icon-phone{ color:#60a5fa }   /* blue */
-        .icon-wa{ color:#25D366 }      /* WhatsApp green */
-        .icon-pin{ color:#ef4444 }     /* red */
+        .icon-phone{ color:#60a5fa }
+        .icon-wa{ color:#25D366 }
+        .icon-pin{ color:#ef4444 }
 
         /* MAP fill */
         .map{position:relative;overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:#0b1220; height:260px}
@@ -219,11 +242,22 @@
         <div class="container">
             <div class="carousel" id="carousel" aria-roledescription="carousel">
                 <div class="slides" id="slides">
-                    <div class="slide"><img src="images/carousel/carousel-1.jpeg" alt="Premium suiting fabrics" /></div>
-                    <div class="slide"><img src="images/carousel/carousel-2.png" alt="Modern textile machinery" /></div>
-                    <div class="slide"><img src="images/carousel/carousel-3.webp" alt="Shirting fabrics display" /></div>
-                    <div class="slide"><img src="images/carousel/carousel-4.jpeg" alt="Tailor stitching close-up" /></div>
-                    <div class="slide"><img src="images/carousel/carousel-5.png" alt="Retailer receiving boxes" /></div>
+                    <div class="slide">
+                        <img src="images/carousel/carousel-1.png" alt="Premium suiting fabrics" />
+                        <div class="cap" data-idx="0"></div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/carousel/carousel-2.png" alt="Modern textile machinery" />
+                        <div class="cap" data-idx="1"></div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/carousel/carousel-3.png" alt="Shirting fabrics display" />
+                        <div class="cap" data-idx="2"></div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/carousel/carousel-4.png" alt="Tailor stitching close-up" />
+                        <div class="cap" data-idx="3"></div>
+                    </div>
                 </div>
                 <button class="car-btn left" id="prev" aria-label="Previous slide">❮</button>
                 <button class="car-btn right" id="next" aria-label="Next slide">❯</button>
@@ -236,7 +270,7 @@
                     <em>At Siddhi Vinayak Textiles, we don’t just sell fabric - we care for our retailers. With customized boxes of suiting and shirting in small cuts, delivered straight to your shop, we save you the travel, the risk of dead stock, and the struggle of outdated designs. Because your success is stitched with our trust.</em>
                 </p>
                 <p data-i18n="quote_hi">
-                    <em>“सिद्धि विनायक टेक्सटाइल्स — जहाँ कपड़ा सिर्फ व्यापार नहीं, विश्वास है। हम लाते हैं आपके लिए हर महीने नए डिज़ाइन, छोटे पैक्स में, सीधे आपकी दुकान तक। ताकि आपका कारोबार बढ़े, और ग्राहक हमेशा खुश रहें।”</em>
+                    <em>सिद्धि विनायक टेक्सटाइल्स - जहाँ कपड़ा सिर्फ व्यापार नहीं, विश्वास है। हम लाते हैं आपके लिए हर महीने नए डिज़ाइन, छोटे पैक्स में, सीधे आपकी दुकान तक। ताकि आपका कारोबार बढ़े, और ग्राहक हमेशा खुश रहें।</em>
                 </p>
             </div>
         </div>
@@ -248,25 +282,25 @@
             <div class="stats" role="group" aria-label="Key metrics">
                 <div class="stat">
                     <div class="num">
-                        <span class="count" data-target="30" data-suffix="+">0</span>
+                        <span class="count" data-target="30" data-suffix="+ साल">0</span>
                     </div>
                     <div class="lab" data-i18n="s1_lab">1992 से भरोसेमंद सेवा</div>
                 </div>
                 <div class="stat">
                     <div class="num">
-                        <span class="count" data-target="500" data-suffix="+">0</span>
+                        <span class="count" data-target="500" data-suffix="+ दुकानदार">0</span>
                     </div>
                     <div class="lab" data-i18n="s2_lab">हमारे साथ जुड़े</div>
                 </div>
                 <div class="stat">
                     <div class="num">
-                        <span class="count" data-target="10000" data-suffix="+">0</span>
+                        <span class="count" data-target="10000" data-suffix="+ ऑर्डर">0</span>
                     </div>
                     <div class="lab" data-i18n="s3_lab">सफलतापूर्वक डिलीवर</div>
                 </div>
                 <div class="stat">
                     <div class="num">
-                        <span class="count" data-target="1000" data-suffix="+">0</span>
+                        <span class="count" data-target="1000" data-suffix="+ डिज़ाइन">0</span>
                     </div>
                     <div class="lab" data-i18n="s4_lab">सूटिंग-शर्टिंग में पेश किए</div>
                 </div>
@@ -443,7 +477,7 @@
         setTransform(`calc(-${idx*100}% + ${dx}px)`);
     });
 
-    // Language strings
+    // Language strings + Carousel captions
     const STRINGS={
         hi:{
             site_name:'श्री सिद्धि विनायक टेक्सटाइल्स',
@@ -454,19 +488,26 @@
             contact_sub:'ऑर्डर, सैंपल या पार्टनरशिप के लिए:',
             rights_hi:'सर्वाधिकार सुरक्षित',
             show_quote:'hi',
-            // Stats labels (no 5th card anymore)
+            // Stats labels
             s1_lab:'1992 से भरोसेमंद सेवा',
             s2_lab:'हमारे साथ जुड़े',
             s3_lab:'सफलतापूर्वक डिलीवर',
             s4_lab:'सूटिंग-शर्टिंग में पेश किए',
             // Address
             addr_hi:'पता: दुकान नं. 6 और 7, प्रथम मंज़िल, कटला पंडित पुरोहित जी का हनुमान मंदिर के पीछे, नया कपड़ा बाज़ार गुजरवाड़ा, वाली गली, त्रिपोलिया बाज़ार, बिसेस्वरजी, जयपुर, राजस्थान – 302003',
-            // Testimonial names/cities
+            // Testimonials toggle + names/cities
             t1:'hi', t2:'hi', t3:'hi', t4:'hi',
             t1_name:'इमरान', t1_city:'वाराणसी',
             t2_name:'अमित',   t2_city:'नागपुर',
             t3_name:'सुरेश',  t3_city:'कोटा',
             t4_name:'राजेश',  t4_city:'भोपाल',
+            // Carousel captions (HI)
+            carousel_caps:[
+                'अब छोटे-छोटे कट्स में नए डिज़ाइन, रेडी बॉक्स में।',
+                'क्वालिटी जो दिखे और टिके, कपड़ा असली, सिलाई आसान।',
+                'डिज़ाइनों की भरमार,हर महीने नए।',
+                'अभी कॉल/WhatsApp करें - तुरंत डिलीवरी पाएँ।'
+            ]
         },
         en:{
             site_name:'Shri Siddhi Vinayak Textiles',
@@ -477,18 +518,24 @@
             contact_sub:'For orders, samples, or partnerships:',
             rights_hi:'All rights reserved',
             show_quote:'en',
-            // Stats labels (no 5th card anymore)
+            // Stats labels
             s1_lab:'of trust since 1992',
             s2_lab:'served across India',
             s3_lab:'delivered successfully',
             s4_lab:'launched in suiting & shirting',
-            addr_hi:'',
-            // Testimonials names/cities in EN
+            // Testimonials toggle + names/cities
             t1:'en', t2:'en', t3:'en', t4:'en',
             t1_name:'Imran', t1_city:'Varanasi',
             t2_name:'Amit',  t2_city:'Nagpur',
             t3_name:'Suresh',t3_city:'Kota',
             t4_name:'Rajesh',t4_city:'Bhopal',
+            // Carousel captions (EN)
+            carousel_caps:[
+                'Now new designs in small cuts, packed in ready boxes.',
+                'Original fabrics, timeless trust.',
+                'Designs in abundance, new every month.',
+                'One click on WhatsApp, box at your shop.'
+            ]
         }
     };
 
@@ -534,6 +581,12 @@
             const cityEl=document.querySelector(`[data-i18n="t${i}_city"]`);
             if(nameEl) nameEl.textContent = dict[`t${i}_name`];
             if(cityEl) cityEl.textContent = dict[`t${i}_city`];
+        });
+
+        // Carousel captions
+        const caps = dict.carousel_caps || [];
+        document.querySelectorAll('.cap').forEach((el, i) => {
+            el.textContent = caps[i % caps.length] || '';
         });
 
         // Lang toggle UI + remember
